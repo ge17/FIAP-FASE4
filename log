@@ -1,0 +1,2005 @@
+Cloning "https://github.com/openshift-katacoda/blog-django-py.git" ...
+	Commit:	9c4f338ab5f3a5ae379ecaa5bcc7d449fa41648e (Merge pull request #9 from mixpix3ls/master)
+	Author:	ryan jarvinen <ryan.jarvinen@gmail.com>
+	Date:	Tue Jun 29 08:46:13 2021 -0600
+Caching blobs under "/var/cache/blobs".
+Getting image source signatures
+Copying blob sha256:a2745c55c3c1fba0208863c387ce5d947a92be3c48577e8436c85b4712546f40
+Copying blob sha256:cafe1f99c39ec8cd1f8e696c7031d8c5756311c1ee87f20c65a816889714841c
+Copying blob sha256:cba8c5a84841f149b262dd9abebee75ce3a0611bfecb365ea178e0dd5a2a0f05
+Copying blob sha256:e0e9ac142996019bde22d55cf51053069e0135f1aae55c9e3bdc77d591c3369b
+Copying blob sha256:fd3cd11aea08456c116a42669bde7cf67dc6738c227f0dd9b26d4b677e2a98f1
+Copying config sha256:370120de32aea4e02a530d7193f8d78bab686c8e4c7b3d388d7b1c8ef2599132
+Writing manifest to image destination
+Storing signatures
+Generating dockerfile with builder image image-registry.openshift-image-registry.svc:5000/openshift/python@sha256:267bcd308156b848bbae5e3f255b014d2fff4186a535a543c69070beb47635ab
+STEP 1: FROM image-registry.openshift-image-registry.svc:5000/openshift/python@sha256:267bcd308156b848bbae5e3f255b014d2fff4186a535a543c69070beb47635ab
+STEP 2: LABEL "io.openshift.build.source-context-dir"="/"       "io.openshift.build.image"="image-registry.openshift-image-registry.svc:5000/openshift/python@sha256:267bcd308156b848bbae5e3f255b014d2fff4186a535a543c69070beb47635ab"       "io.openshift.build.commit.author"="ryan jarvinen <ryan.jarvinen@gmail.com>"       "io.openshift.build.commit.date"="Tue Jun 29 08:46:13 2021 -0600"       "io.openshift.build.commit.id"="9c4f338ab5f3a5ae379ecaa5bcc7d449fa41648e"       "io.openshift.build.commit.ref"="master"       "io.openshift.build.commit.message"="Merge pull request #9 from mixpix3ls/master"       "io.openshift.build.source-location"="https://github.com/openshift-katacoda/blog-django-py.git"
+STEP 3: ENV DISABLE_COLLECTSTATIC="1"     DISABLE_MIGRATE="1"     OPENSHIFT_BUILD_NAME="meu-blog-1"     OPENSHIFT_BUILD_NAMESPACE="rm-343002"     OPENSHIFT_BUILD_SOURCE="https://github.com/openshift-katacoda/blog-django-py.git"     OPENSHIFT_BUILD_COMMIT="9c4f338ab5f3a5ae379ecaa5bcc7d449fa41648e"
+STEP 4: USER root
+STEP 5: COPY upload/scripts /tmp/scripts
+STEP 6: COPY upload/src /tmp/src
+STEP 7: RUN chown -R 1001:0 /tmp/scripts /tmp/src
+time="2022-07-15T23:36:54Z" level=warning msg="Path \"/run/secrets/etc-pki-entitlement\" from \"/etc/containers/mounts.conf\" doesn't exist, skipping"
+time="2022-07-15T23:36:54Z" level=warning msg="Path \"/run/secrets/redhat.repo\" from \"/etc/containers/mounts.conf\" doesn't exist, skipping"
+STEP 8: USER 1001
+STEP 9: RUN /tmp/scripts/assemble
+time="2022-07-15T23:36:55Z" level=warning msg="Path \"/run/secrets/etc-pki-entitlement\" from \"/etc/containers/mounts.conf\" doesn't exist, skipping"
+time="2022-07-15T23:36:55Z" level=warning msg="Path \"/run/secrets/redhat.repo\" from \"/etc/containers/mounts.conf\" doesn't exist, skipping"
+Collecting powershift-cli[image]
+  Downloading powershift-cli-1.3.1.tar.gz (7.6 kB)
+Collecting click
+  Downloading click-8.1.3-py3-none-any.whl (96 kB)
+Collecting powershift-image>=1.0.3
+  Downloading powershift-image-1.4.2.tar.gz (11 kB)
+Using legacy 'setup.py install' for powershift-image, since package 'wheel' is not installed.
+Using legacy 'setup.py install' for powershift-cli, since package 'wheel' is not installed.
+Installing collected packages: click, powershift-image, powershift-cli
+    Running setup.py install for powershift-image: started
+    Running setup.py install for powershift-image: finished with status 'done'
+    Running setup.py install for powershift-cli: started
+    Running setup.py install for powershift-cli: finished with status 'done'
+Successfully installed click-8.1.3 powershift-cli-1.3.1 powershift-image-1.4.2
+WARNING: You are using pip version 21.2.3; however, version 22.1.2 is available.
+You should consider upgrading via the '/opt/app-root/bin/python3.8 -m pip install --upgrade pip' command.
+ -----> Running application assemble script.
+ -----> Running /opt/app-root/src/.s2i/action_hooks/pre_build
+ -----> Initial environment variables set by builder image.
+MANPATH=/opt/rh/rh-nodejs14/root/usr/share/man:/opt/rh/httpd24/root/usr/share/man:/opt/rh/rh-python38/root/usr/share/man:/opt/rh/python38/root/usr/share/man:/opt/rh/httpd24/root/usr/share/man:/opt/rh/rh-nodejs14/root/usr/share/man
+HOSTNAME=51f2e4c495d5
+APP_ROOT=/opt/app-root
+PIP_NO_CACHE_DIR=off
+TERM=xterm
+OPENSHIFT_BUILD_COMMIT=9c4f338ab5f3a5ae379ecaa5bcc7d449fa41648e
+LIBRARY_PATH=/opt/rh/httpd24/root/usr/lib64:/opt/rh/httpd24/root/usr/lib64
+OPENSHIFT_BUILD_NAME=meu-blog-1
+PYTHONUNBUFFERED=1
+DESCRIPTION=Python 3.8 available as container is a base platform for building and running various Python 3.8 applications and frameworks. Python is an easy to learn, powerful programming language. It has efficient high-level data structures and a simple but effective approach to object-oriented programming. Python's elegant syntax and dynamic typing, together with its interpreted nature, make it an ideal language for scripting and rapid application development in many areas on most platforms.
+NODEJS_SCL=rh-nodejs14
+X_SCLS=rh-nodejs14 httpd24 rh-python38
+LC_ALL=en_US.UTF-8
+OPENSHIFT_BUILD_SOURCE=https://github.com/openshift-katacoda/blog-django-py.git
+PYTHONIOENCODING=UTF-8
+LD_LIBRARY_PATH=/opt/rh/rh-nodejs14/root/usr/lib64:/opt/rh/httpd24/root/usr/lib64:/opt/rh/rh-python38/root/usr/lib64:/opt/rh/rh-nodejs14/root/usr/lib64:/opt/rh/httpd24/root/usr/lib64:/opt/rh/python38/root/usr/lib64
+VIRTUAL_ENV=/opt/app-root
+CNB_STACK_ID=com.redhat.stacks.ubi7-python-38
+PYTHON_VERSION=3.8
+PATH=/opt/app-root/bin:/opt/rh/rh-nodejs14/root/usr/bin:/opt/rh/httpd24/root/usr/bin:/opt/rh/httpd24/root/usr/sbin:/opt/app-root/src/bin:/opt/app-root/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/rh/rh-python38/root/usr/bin:/opt/app-root/src/.local/bin/:/opt/rh/rh-nodejs14/root/usr/bin:/opt/rh/httpd24/root/usr/bin:/opt/rh/python38/root/usr/bin:/opt/rh/httpd24/root/usr/sbin:/opt/rh/rh-python38/root/usr/local/bin
+CNB_GROUP_ID=0
+OPENSHIFT_BUILD_NAMESPACE=rm-343002
+DISABLE_MIGRATE=1
+STI_SCRIPTS_URL=image:///usr/libexec/s2i
+PWD=/opt/app-root/src
+STI_SCRIPTS_PATH=/usr/libexec/s2i
+LANG=en_US.UTF-8
+S2I_APPLICATION_PATH=/opt/app-root
+SUMMARY=Platform for building and running Python 3.8 applications
+PLATFORM=el7
+S2I_SCRIPTS_PATH=/usr/libexec/s2i
+HOME=/opt/app-root/src
+SHLVL=3
+PYTHON_SCL_VERSION=38
+S2I_SOURCE_PATH=/opt/app-root/src
+PYTHONPATH=/opt/rh/rh-nodejs14/root/usr/lib/python2.7/site-packages:/opt/rh/rh-nodejs14/root/usr/lib/python2.7/site-packages
+XDG_DATA_DIRS=/opt/rh/python38/root/usr/share:/opt/rh/rh-python38/root/usr/share:/usr/local/share:/usr/share
+PKG_CONFIG_PATH=/opt/rh/httpd24/root/usr/lib64/pkgconfig:/opt/rh/python38/root/usr/lib64/pkgconfig:/opt/rh/httpd24/root/usr/lib64/pkgconfig:/opt/rh/rh-python38/root/usr/lib64/pkgconfig
+DISABLE_COLLECTSTATIC=1
+container=oci
+CNB_USER_ID=1001
+_=/usr/bin/env
+ -----> Initial contents of the /tmp/src directory.
+/tmp/src:
+total 36
+0 drwxr-xr-x. 8 default root  237 Jul 15 23:36 .
+0 drwxrwxrwt. 1 root    root   32 Jul 15 23:36 ..
+4 -rwxr-xr-x. 1 default root 1454 Jul 15 23:36 app.sh
+0 drwxr-xr-x. 5 default root  214 Jul 15 23:36 blog
+0 drwxr-xr-x. 2 default root   25 Jul 15 23:36 configs
+4 -rw-r--r--. 1 default root  230 Jul 15 23:36 cronjobs.py
+4 -rw-r--r--. 1 default root  430 Jul 15 23:36 Dockerfile
+0 drwxr-xr-x. 8 default root  178 Jul 15 23:36 .git
+4 -rw-r--r--. 1 default root   30 Jul 15 23:36 .gitignore
+0 drwxr-xr-x. 2 default root   25 Jul 15 23:36 htdocs
+0 drwxr-xr-x. 2 default root   92 Jul 15 23:36 katacoda
+4 -rwxr-xr-x. 1 default root  806 Jul 15 23:36 manage.py
+4 -rw-r--r--. 1 default root  944 Jul 15 23:36 posts.json
+8 -rw-r--r--. 1 default root 7861 Jul 15 23:36 README.md
+4 -rw-r--r--. 1 default root  201 Jul 15 23:36 requirements.txt
+0 drwxr-xr-x. 2 default root  148 Jul 15 23:36 templates
+
+/tmp/src/blog:
+total 32
+0 drwxr-xr-x. 5 default root  214 Jul 15 23:36 .
+0 drwxr-xr-x. 8 default root  237 Jul 15 23:36 ..
+4 -rw-r--r--. 1 default root   85 Jul 15 23:36 admin.py
+4 -rw-r--r--. 1 default root   83 Jul 15 23:36 apps.py
+4 -rw-r--r--. 1 default root  342 Jul 15 23:36 context_processors.py
+4 -rw-r--r--. 1 default root  167 Jul 15 23:36 forms.py
+0 -rw-r--r--. 1 default root    0 Jul 15 23:36 __init__.py
+0 drwxr-xr-x. 2 default root   82 Jul 15 23:36 migrations
+4 -rw-r--r--. 1 default root  611 Jul 15 23:36 models.py
+0 drwxr-xr-x. 3 default root   17 Jul 15 23:36 static
+0 drwxr-xr-x. 3 default root   18 Jul 15 23:36 templates
+4 -rw-r--r--. 1 default root   60 Jul 15 23:36 tests.py
+4 -rw-r--r--. 1 default root  471 Jul 15 23:36 urls.py
+4 -rw-r--r--. 1 default root 1456 Jul 15 23:36 views.py
+
+/tmp/src/blog/migrations:
+total 8
+0 drwxr-xr-x. 2 default root   82 Jul 15 23:36 .
+0 drwxr-xr-x. 5 default root  214 Jul 15 23:36 ..
+4 -rw-r--r--. 1 default root 1140 Jul 15 23:36 0001_initial.py
+4 -rw-r--r--. 1 default root  422 Jul 15 23:36 0002_auto_20190618_0147.py
+0 -rw-r--r--. 1 default root    0 Jul 15 23:36 __init__.py
+
+/tmp/src/blog/static:
+total 0
+0 drwxr-xr-x. 3 default root  17 Jul 15 23:36 .
+0 drwxr-xr-x. 5 default root 214 Jul 15 23:36 ..
+0 drwxr-xr-x. 2 default root  22 Jul 15 23:36 css
+
+/tmp/src/blog/static/css:
+total 4
+0 drwxr-xr-x. 2 default root  22 Jul 15 23:36 .
+0 drwxr-xr-x. 3 default root  17 Jul 15 23:36 ..
+4 -rw-r--r--. 1 default root 863 Jul 15 23:36 blog.css
+
+/tmp/src/blog/templates:
+total 0
+0 drwxr-xr-x. 3 default root  18 Jul 15 23:36 .
+0 drwxr-xr-x. 5 default root 214 Jul 15 23:36 ..
+0 drwxr-xr-x. 2 default root 109 Jul 15 23:36 blog
+
+/tmp/src/blog/templates/blog:
+total 20
+0 drwxr-xr-x. 2 default root  109 Jul 15 23:36 .
+0 drwxr-xr-x. 3 default root   18 Jul 15 23:36 ..
+4 -rw-r--r--. 1 default root 1403 Jul 15 23:36 base.html
+4 -rw-r--r--. 1 default root  237 Jul 15 23:36 login.html
+4 -rw-r--r--. 1 default root  613 Jul 15 23:36 post_detail.html
+4 -rw-r--r--. 1 default root  287 Jul 15 23:36 post_edit.html
+4 -rw-r--r--. 1 default root  381 Jul 15 23:36 post_list.html
+
+/tmp/src/configs:
+total 4
+0 drwxr-xr-x. 2 default root  25 Jul 15 23:36 .
+0 drwxr-xr-x. 8 default root 237 Jul 15 23:36 ..
+4 -rw-r--r--. 1 default root 900 Jul 15 23:36 webdav.conf
+
+/tmp/src/.git:
+total 36
+0 drwxr-xr-x.  8 default root  178 Jul 15 23:36 .
+0 drwxr-xr-x.  8 default root  237 Jul 15 23:36 ..
+0 drwxr-xr-x.  2 default root    6 Jul 15 23:36 branches
+4 -rw-r--r--.  1 default root  315 Jul 15 23:36 config
+4 -rw-r--r--.  1 default root   73 Jul 15 23:36 description
+4 -rw-r--r--.  1 default root   23 Jul 15 23:36 HEAD
+4 drwxr-xr-x.  2 default root 4096 Jul 15 23:36 hooks
+8 -rw-r--r--.  1 default root 5171 Jul 15 23:36 index
+0 drwxr-xr-x.  2 default root   21 Jul 15 23:36 info
+0 drwxr-xr-x.  3 default root   30 Jul 15 23:36 logs
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 objects
+4 -rw-r--r--.  1 default root  114 Jul 15 23:36 packed-refs
+0 drwxr-xr-x.  5 default root   46 Jul 15 23:36 refs
+4 -rw-r--r--.  1 default root   41 Jul 15 23:36 shallow
+
+/tmp/src/.git/branches:
+total 0
+0 drwxr-xr-x. 2 default root   6 Jul 15 23:36 .
+0 drwxr-xr-x. 8 default root 178 Jul 15 23:36 ..
+
+/tmp/src/.git/hooks:
+total 52
+4 drwxr-xr-x. 2 default root 4096 Jul 15 23:36 .
+0 drwxr-xr-x. 8 default root  178 Jul 15 23:36 ..
+4 -rwxr-xr-x. 1 default root  478 Jul 15 23:36 applypatch-msg.sample
+4 -rwxr-xr-x. 1 default root  896 Jul 15 23:36 commit-msg.sample
+4 -rwxr-xr-x. 1 default root 3327 Jul 15 23:36 fsmonitor-watchman.sample
+4 -rwxr-xr-x. 1 default root  189 Jul 15 23:36 post-update.sample
+4 -rwxr-xr-x. 1 default root  424 Jul 15 23:36 pre-applypatch.sample
+4 -rwxr-xr-x. 1 default root 1638 Jul 15 23:36 pre-commit.sample
+4 -rwxr-xr-x. 1 default root 1492 Jul 15 23:36 prepare-commit-msg.sample
+4 -rwxr-xr-x. 1 default root 1348 Jul 15 23:36 pre-push.sample
+8 -rwxr-xr-x. 1 default root 4898 Jul 15 23:36 pre-rebase.sample
+4 -rwxr-xr-x. 1 default root  544 Jul 15 23:36 pre-receive.sample
+4 -rwxr-xr-x. 1 default root 3610 Jul 15 23:36 update.sample
+
+/tmp/src/.git/info:
+total 4
+0 drwxr-xr-x. 2 default root  21 Jul 15 23:36 .
+0 drwxr-xr-x. 8 default root 178 Jul 15 23:36 ..
+4 -rw-r--r--. 1 default root 240 Jul 15 23:36 exclude
+
+/tmp/src/.git/logs:
+total 4
+0 drwxr-xr-x. 3 default root  30 Jul 15 23:36 .
+0 drwxr-xr-x. 8 default root 178 Jul 15 23:36 ..
+4 -rw-r--r--. 1 default root 204 Jul 15 23:36 HEAD
+0 drwxr-xr-x. 4 default root  34 Jul 15 23:36 refs
+
+/tmp/src/.git/logs/refs:
+total 0
+0 drwxr-xr-x. 4 default root 34 Jul 15 23:36 .
+0 drwxr-xr-x. 3 default root 30 Jul 15 23:36 ..
+0 drwxr-xr-x. 2 default root 20 Jul 15 23:36 heads
+0 drwxr-xr-x. 3 default root 20 Jul 15 23:36 remotes
+
+/tmp/src/.git/logs/refs/heads:
+total 4
+0 drwxr-xr-x. 2 default root  20 Jul 15 23:36 .
+0 drwxr-xr-x. 4 default root  34 Jul 15 23:36 ..
+4 -rw-r--r--. 1 default root 204 Jul 15 23:36 master
+
+/tmp/src/.git/logs/refs/remotes:
+total 0
+0 drwxr-xr-x. 3 default root 20 Jul 15 23:36 .
+0 drwxr-xr-x. 4 default root 34 Jul 15 23:36 ..
+0 drwxr-xr-x. 2 default root 18 Jul 15 23:36 origin
+
+/tmp/src/.git/logs/refs/remotes/origin:
+total 4
+0 drwxr-xr-x. 2 default root  18 Jul 15 23:36 .
+0 drwxr-xr-x. 3 default root  20 Jul 15 23:36 ..
+4 -rw-r--r--. 1 default root 204 Jul 15 23:36 HEAD
+
+/tmp/src/.git/objects:
+total 4
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 .
+0 drwxr-xr-x.  8 default root  178 Jul 15 23:36 ..
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 01
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 0b
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 0c
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 10
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 11
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 16
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 18
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 20
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 28
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 29
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 30
+0 drwxr-xr-x.  2 default root   98 Jul 15 23:36 31
+0 drwxr-xr-x.  2 default root   98 Jul 15 23:36 33
+0 drwxr-xr-x.  2 default root   98 Jul 15 23:36 36
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 39
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 3a
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 41
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 42
+0 drwxr-xr-x.  2 default root  144 Jul 15 23:36 47
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 4b
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 4c
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 50
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 53
+0 drwxr-xr-x.  2 default root   98 Jul 15 23:36 54
+0 drwxr-xr-x.  2 default root   98 Jul 15 23:36 5c
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 60
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 64
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 66
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 6e
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 71
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 73
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 77
+0 drwxr-xr-x.  2 default root   98 Jul 15 23:36 79
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 7b
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 7c
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 7e
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 81
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 87
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 89
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 8e
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 8f
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 92
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 93
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 94
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 9c
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 ae
+0 drwxr-xr-x.  2 default root  144 Jul 15 23:36 b3
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 be
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 c9
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 cc
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 d1
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 df
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 e2
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 e6
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 eb
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 f7
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 fc
+0 drwxr-xr-x.  2 default root    6 Jul 15 23:36 info
+0 drwxr-xr-x.  2 default root    6 Jul 15 23:36 pack
+
+/tmp/src/.git/objects/01:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  509 Jul 15 23:36 d56f9792190ba36de2faed7b1326213edf37cd
+
+/tmp/src/.git/objects/0b:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  467 Jul 15 23:36 93a7a5ec2d49f0e03cae0c7ad14c5452772b75
+
+/tmp/src/.git/objects/0c:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  387 Jul 15 23:36 7c3d3f28c62acb4e258f298f59dee64f8f8734
+
+/tmp/src/.git/objects/10:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root 3067 Jul 15 23:36 0af93885e25de005cd2584524cb6aef584f69a
+
+/tmp/src/.git/objects/11:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  126 Jul 15 23:36 04790995a81d7cd8746591e7033b0aa89854e2
+
+/tmp/src/.git/objects/16:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  630 Jul 15 23:36 e2674dfe4d1072220b2415f7b7f89f6877ad81
+
+/tmp/src/.git/objects/18:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root   49 Jul 15 23:36 ed3433083ef51e52dab3b7893b5a890ca5e63b
+
+/tmp/src/.git/objects/20:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root 1879 Jul 15 23:36 da5332f93d7ef93b6bc0c79348c6d0a98a84cc
+
+/tmp/src/.git/objects/28:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  480 Jul 15 23:36 bbd4323cd37005c1d0b2e4ee2f43d1ea6cb5a8
+
+/tmp/src/.git/objects/29:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  136 Jul 15 23:36 c8571a743b02fe0301cc543f2b814cbff488c0
+
+/tmp/src/.git/objects/30:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  282 Jul 15 23:36 e466922ec3ac56cd653c7a72f978f7bbfe1477
+
+/tmp/src/.git/objects/31:
+total 12
+0 drwxr-xr-x.  2 default root   98 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root 2762 Jul 15 23:36 30b5f9399f5b8aff6e56e7b4d5c3cc4987654e
+4 -r--r--r--.  1 default root  273 Jul 15 23:36 be32e343812d8cc1181c1dedb4881686cc735c
+
+/tmp/src/.git/objects/33:
+total 12
+0 drwxr-xr-x.  2 default root   98 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  220 Jul 15 23:36 014d1dc9c065476b0e23fe607564aa0338011c
+4 -r--r--r--.  1 default root  212 Jul 15 23:36 4d9592a2b0343b2e93785f4cc2a2bfd9835fbb
+
+/tmp/src/.git/objects/36:
+total 12
+0 drwxr-xr-x.  2 default root   98 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  176 Jul 15 23:36 61b5590fdb62f4d842758897666de4a3490d86
+4 -r--r--r--.  1 default root  544 Jul 15 23:36 86ba435560faca0432ae67a40a5a9cf15f5fcb
+
+/tmp/src/.git/objects/39:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  304 Jul 15 23:36 1fa4ca28bffebb0ba79e15cc94a016194460e0
+
+/tmp/src/.git/objects/3a:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  167 Jul 15 23:36 c04f90116b8af93b9429ea81a5c821c70e0b68
+
+/tmp/src/.git/objects/41:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  285 Jul 15 23:36 7440fe071c07c658f6a26f0ad7f5f1c42068f4
+
+/tmp/src/.git/objects/42:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root   50 Jul 15 23:36 df77381a93f473073d8d3dcf4cbef6d7df2f25
+
+/tmp/src/.git/objects/47:
+total 16
+0 drwxr-xr-x.  2 default root  144 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  133 Jul 15 23:36 1c085f7105a0e14eb45324f388516641c095b6
+4 -r--r--r--.  1 default root  698 Jul 15 23:36 3b012b387bdfee7333e1778805bdd5ee2bb2fc
+4 -r--r--r--.  1 default root   84 Jul 15 23:36 f03fdd3df00b3730e5841d9c5d76bf4b98efff
+
+/tmp/src/.git/objects/4b:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  264 Jul 15 23:36 0e7ec7fd48f10659e855418dc33353b8d8f8a1
+
+/tmp/src/.git/objects/4c:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  400 Jul 15 23:36 f9304cf78ef31ee8ee082a9fa886d28a0648b1
+
+/tmp/src/.git/objects/50:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  156 Jul 15 23:36 4c70effba66b4c054a1b3dd98cd6883c19fb6c
+
+/tmp/src/.git/objects/53:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  755 Jul 15 23:36 b17d13acb60ba8f689bf19759f37bf8c876cbb
+
+/tmp/src/.git/objects/54:
+total 12
+0 drwxr-xr-x.  2 default root   98 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root   55 Jul 15 23:36 25e199ed96165782be8a252c2620108de2e853
+4 -r--r--r--.  1 default root  132 Jul 15 23:36 82b27dc325214d5c234ddb510f8b589249a5b0
+
+/tmp/src/.git/objects/5c:
+total 12
+0 drwxr-xr-x.  2 default root   98 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root   77 Jul 15 23:36 2336917bf160c3aa91bbb39124dafe1ca199db
+4 -r--r--r--.  1 default root  316 Jul 15 23:36 7fefd0f80d6d8dd0aacb9934bc54fd27f651f8
+
+/tmp/src/.git/objects/60:
+total 12
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+8 -r--r--r--.  1 default root 5992 Jul 15 23:36 b03ecb6736965cc9e854dc9400bf0317d7da84
+
+/tmp/src/.git/objects/64:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  866 Jul 15 23:36 22df3b86ca0828aa642dfe8bd27636f0ad64df
+
+/tmp/src/.git/objects/66:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  483 Jul 15 23:36 a492abd7e1a85193dff1123e6d089cd6f9dd12
+
+/tmp/src/.git/objects/6e:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  577 Jul 15 23:36 430ccf7e78305df406be56c4bab4ff1b134085
+
+/tmp/src/.git/objects/71:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  573 Jul 15 23:36 323e9a8290471fb89b8acff0d2d4086ebb37f0
+
+/tmp/src/.git/objects/73:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  233 Jul 15 23:36 82f363303521cfda1c5fc31d1e68eba2ebc54f
+
+/tmp/src/.git/objects/77:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  150 Jul 15 23:36 b747ef56735aa9a41ea300ee5fcee2945aa683
+
+/tmp/src/.git/objects/79:
+total 12
+0 drwxr-xr-x.  2 default root   98 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root   85 Jul 15 23:36 30587867e1e6535d64e8d6254d75ccc0f95239
+4 -r--r--r--.  1 default root  212 Jul 15 23:36 ccb0209d12b705bba57c75c24b4261ad1fda7f
+
+/tmp/src/.git/objects/7b:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  169 Jul 15 23:36 6c16cd1bd01a5302ce67d9703f4fba2d5450ba
+
+/tmp/src/.git/objects/7c:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root   72 Jul 15 23:36 e503c2dd97ba78597f6ff6e4393132753573f6
+
+/tmp/src/.git/objects/7e:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root   45 Jul 15 23:36 a440e0062e438d68ee397a4b7a4fb12f3f9bfd
+
+/tmp/src/.git/objects/81:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root 2300 Jul 15 23:36 f7a18bc7b9814fb983941300cd1ba81a6199d8
+
+/tmp/src/.git/objects/87:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root   53 Jul 15 23:36 98eb3aa57cc868e41e87297c4cb4a9b45d0f7b
+
+/tmp/src/.git/objects/89:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  178 Jul 15 23:36 3744ec34303537054e6301501677be3b4c151d
+
+/tmp/src/.git/objects/8e:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root 3161 Jul 15 23:36 2970228b6a43963de57f09e3dd5e8ac83d0626
+
+/tmp/src/.git/objects/8f:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  109 Jul 15 23:36 c13c603440d6813a9d4ac6ab8fbaeb527a35d2
+
+/tmp/src/.git/objects/92:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  180 Jul 15 23:36 f6d282dba5a1319dc39fc61da85a15f1935c2a
+
+/tmp/src/.git/objects/93:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  165 Jul 15 23:36 28a26374e56ffc31c321a4add3dc35515f5bd8
+
+/tmp/src/.git/objects/94:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  315 Jul 15 23:36 24c4885bc449b167e3d2ba35bec5ac9c028fef
+
+/tmp/src/.git/objects/9c:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  621 Jul 15 23:36 4f338ab5f3a5ae379ecaa5bcc7d449fa41648e
+
+/tmp/src/.git/objects/ae:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  466 Jul 15 23:36 5bfc2b7db0f07d74cf596766e3697df90ccdb5
+
+/tmp/src/.git/objects/b3:
+total 16
+0 drwxr-xr-x.  2 default root  144 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  310 Jul 15 23:36 751afbf5533955da0cf625b3b5ff01592ec84b
+4 -r--r--r--.  1 default root   45 Jul 15 23:36 96edee445b3d2348838b3c66b1affa58e6de48
+4 -r--r--r--.  1 default root   58 Jul 15 23:36 f5816c8ef5e3c2049a7039a39be7869a0f36cf
+
+/tmp/src/.git/objects/be:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  364 Jul 15 23:36 f3e4d8b67049d287731c26ef5edb4d5d629e36
+
+/tmp/src/.git/objects/c9:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root   56 Jul 15 23:36 6bd78b6a215921bdbbc586a8d44eaa33941a73
+
+/tmp/src/.git/objects/cc:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  336 Jul 15 23:36 6eb503b6a4ecb4555ab39d442853075ee2d22b
+
+/tmp/src/.git/objects/d1:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  119 Jul 15 23:36 adba3976f0f71bd36f5c10b0b0b0666d198282
+
+/tmp/src/.git/objects/df:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  461 Jul 15 23:36 6b5cf7896e8e952eb169d4ab9864724330d3ef
+
+/tmp/src/.git/objects/e2:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root   46 Jul 15 23:36 6903f47f9a9df01619841a4ffe51469f61d077
+
+/tmp/src/.git/objects/e6:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root   15 Jul 15 23:36 9de29bb2d1d6434b8b29ae775ad8c2e48c5391
+
+/tmp/src/.git/objects/eb:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  469 Jul 15 23:36 c528861082ae02662018bed9ca6db306c2fba2
+
+/tmp/src/.git/objects/f7:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  449 Jul 15 23:36 76eb5c267727f84c7cabcd5dbecb70a3894123
+
+/tmp/src/.git/objects/fc:
+total 8
+0 drwxr-xr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--r--r--.  1 default root  354 Jul 15 23:36 4a760b68c4f5eab8e9bdf5150897aa87db8f09
+
+/tmp/src/.git/objects/info:
+total 4
+0 drwxr-xr-x.  2 default root    6 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+
+/tmp/src/.git/objects/pack:
+total 4
+0 drwxr-xr-x.  2 default root    6 Jul 15 23:36 .
+4 drwxr-xr-x. 61 default root 4096 Jul 15 23:36 ..
+
+/tmp/src/.git/refs:
+total 0
+0 drwxr-xr-x. 5 default root  46 Jul 15 23:36 .
+0 drwxr-xr-x. 8 default root 178 Jul 15 23:36 ..
+0 drwxr-xr-x. 2 default root  20 Jul 15 23:36 heads
+0 drwxr-xr-x. 3 default root  20 Jul 15 23:36 remotes
+0 drwxr-xr-x. 2 default root   6 Jul 15 23:36 tags
+
+/tmp/src/.git/refs/heads:
+total 4
+0 drwxr-xr-x. 2 default root 20 Jul 15 23:36 .
+0 drwxr-xr-x. 5 default root 46 Jul 15 23:36 ..
+4 -rw-r--r--. 1 default root 41 Jul 15 23:36 master
+
+/tmp/src/.git/refs/remotes:
+total 0
+0 drwxr-xr-x. 3 default root 20 Jul 15 23:36 .
+0 drwxr-xr-x. 5 default root 46 Jul 15 23:36 ..
+0 drwxr-xr-x. 2 default root 18 Jul 15 23:36 origin
+
+/tmp/src/.git/refs/remotes/origin:
+total 4
+0 drwxr-xr-x. 2 default root 18 Jul 15 23:36 .
+0 drwxr-xr-x. 3 default root 20 Jul 15 23:36 ..
+4 -rw-r--r--. 1 default root 32 Jul 15 23:36 HEAD
+
+/tmp/src/.git/refs/tags:
+total 0
+0 drwxr-xr-x. 2 default root  6 Jul 15 23:36 .
+0 drwxr-xr-x. 5 default root 46 Jul 15 23:36 ..
+
+/tmp/src/htdocs:
+total 32
+ 0 drwxr-xr-x. 2 default root    25 Jul 15 23:36 .
+ 0 drwxr-xr-x. 8 default root   237 Jul 15 23:36 ..
+32 -rw-r--r--. 1 default root 32038 Jul 15 23:36 favicon.ico
+
+/tmp/src/katacoda:
+total 20
+0 drwxr-xr-x. 2 default root   92 Jul 15 23:36 .
+0 drwxr-xr-x. 8 default root  237 Jul 15 23:36 ..
+4 -rw-r--r--. 1 default root  193 Jul 15 23:36 healthz.py
+0 -rw-r--r--. 1 default root    0 Jul 15 23:36 __init__.py
+8 -rw-r--r--. 1 default root 6578 Jul 15 23:36 settings.py
+4 -rw-r--r--. 1 default root 1088 Jul 15 23:36 urls.py
+4 -rw-r--r--. 1 default root  394 Jul 15 23:36 wsgi.py
+
+/tmp/src/templates:
+total 56
+ 0 drwxr-xr-x. 2 default root   148 Jul 15 23:36 .
+ 0 drwxr-xr-x. 8 default root   237 Jul 15 23:36 ..
+24 -rw-r--r--. 1 default root 21360 Jul 15 23:36 postgresql-persistent-two-volumes-cronjobs.json
+20 -rw-r--r--. 1 default root 19075 Jul 15 23:36 postgresql-persistent-two-volumes.json
+12 -rw-r--r--. 1 default root  8675 Jul 15 23:36 sqlite-persistent-one-volume.json
+ -----> Current working directory.
+/opt/app-root/src
+ -----> Initial contents of the current working directory.
+.:
+total 4
+0 drwxrwxr-x. 1 default root   18 Jul 15 23:36 .
+0 drwxrwxr-x. 1 default root   39 Mar  2 09:57 ..
+0 drwxrwxr-x. 1 default root   19 Mar  2 09:41 .pki
+4 -rw-rw----. 1 default root 1024 Mar  2 09:56 .rnd
+0 drwxr-xr-x. 5 default root   68 Jul 15 23:36 .s2i
+
+./.pki:
+total 0
+0 drwxrwxr-x. 1 default root 19 Mar  2 09:41 .
+0 drwxrwxr-x. 1 default root 18 Jul 15 23:36 ..
+0 drwxrwxr-x. 1 default root  6 Mar  2 09:41 nssdb
+
+./.pki/nssdb:
+total 0
+0 drwxrwxr-x. 1 default root  6 Mar  2 09:41 .
+0 drwxrwxr-x. 1 default root 19 Mar  2 09:41 ..
+
+./.s2i:
+total 4
+0 drwxr-xr-x. 5 default root  68 Jul 15 23:36 .
+0 drwxrwxr-x. 1 default root  18 Jul 15 23:36 ..
+0 drwxr-xr-x. 2 default root 187 Jul 15 23:36 action_hooks
+0 drwxr-xr-x. 2 default root   6 Jul 15 23:36 bin
+4 -rw-r--r--. 1 default root  42 Jul 15 23:36 environment
+0 drwxr-xr-x. 3 default root  20 Jul 15 23:36 jobs
+
+./.s2i/action_hooks:
+total 44
+0 drwxr-xr-x. 2 default root  187 Jul 15 23:36 .
+0 drwxr-xr-x. 5 default root   68 Jul 15 23:36 ..
+4 -rwxr-xr-x. 1 default root  813 Jul 15 23:36 alive
+4 -rwxr-xr-x. 1 default root 1181 Jul 15 23:36 build
+4 -rw-r--r--. 1 default root 1486 Jul 15 23:36 build_env
+4 -rw-r--r--. 1 default root  562 Jul 15 23:36 check-database.py
+4 -rw-r--r--. 1 default root  144 Jul 15 23:36 check-server.py
+4 -rwxr-xr-x. 1 default root 2022 Jul 15 23:36 deploy
+4 -rw-r--r--. 1 default root  890 Jul 15 23:36 deploy_env
+4 -rwxr-xr-x. 1 default root  106 Jul 15 23:36 migrate
+4 -rwxr-xr-x. 1 default root 1587 Jul 15 23:36 pre_build
+4 -rwxr-xr-x. 1 default root  815 Jul 15 23:36 ready
+4 -rwxr-xr-x. 1 default root  707 Jul 15 23:36 setup
+
+./.s2i/bin:
+total 0
+0 drwxr-xr-x. 2 default root  6 Jul 15 23:36 .
+0 drwxr-xr-x. 5 default root 68 Jul 15 23:36 ..
+
+./.s2i/jobs:
+total 0
+0 drwxr-xr-x. 3 default root 20 Jul 15 23:36 .
+0 drwxr-xr-x. 5 default root 68 Jul 15 23:36 ..
+0 drwxr-xr-x. 2 default root 27 Jul 15 23:36 hourly
+
+./.s2i/jobs/hourly:
+total 4
+0 drwxr-xr-x. 2 default root 27 Jul 15 23:36 .
+0 drwxr-xr-x. 3 default root 20 Jul 15 23:36 ..
+4 -rwxr-xr-x. 1 default root 70 Jul 15 23:36 clearsessions
+Requirement already satisfied: pip in /opt/app-root/lib/python3.8/site-packages (21.2.3)
+Collecting pip
+  Downloading pip-22.1.2-py3-none-any.whl (2.1 MB)
+Requirement already satisfied: setuptools in /opt/app-root/lib/python3.8/site-packages (41.6.0)
+Collecting setuptools
+  Downloading setuptools-63.2.0-py3-none-any.whl (1.2 MB)
+Collecting wheel
+  Downloading wheel-0.37.1-py2.py3-none-any.whl (35 kB)
+Installing collected packages: wheel, setuptools, pip
+  Attempting uninstall: setuptools
+    Found existing installation: setuptools 41.6.0
+    Uninstalling setuptools-41.6.0:
+      Successfully uninstalled setuptools-41.6.0
+  Attempting uninstall: pip
+    Found existing installation: pip 21.2.3
+    Uninstalling pip-21.2.3:
+      Successfully uninstalled pip-21.2.3
+Successfully installed pip-22.1.2 setuptools-63.2.0 wheel-0.37.1
+ -----> Running /opt/app-root/src/.s2i/action_hooks/build_env
+ -----> Running builder assemble script (/usr/libexec/s2i/assemble)
+---> Installing application source ...
+---> Installing dependencies ...
+Collecting certifi==2018.1.18
+  Downloading certifi-2018.1.18-py2.py3-none-any.whl (151 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 151.6/151.6 kB 6.3 MB/s eta 0:00:00
+Collecting chardet==3.0.4
+  Downloading chardet-3.0.4-py2.py3-none-any.whl (133 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.4/133.4 kB 115.0 MB/s eta 0:00:00
+Collecting click==6.7
+  Downloading click-6.7-py2.py3-none-any.whl (71 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 71.2/71.2 kB 253.4 MB/s eta 0:00:00
+Collecting dj-database-url==0.4.2
+  Downloading dj_database_url-0.4.2-py2.py3-none-any.whl (5.6 kB)
+Collecting Django==2.0.13
+  Downloading Django-2.0.13-py3-none-any.whl (7.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.1/7.1 MB 102.2 MB/s eta 0:00:00
+Collecting idna==2.6
+  Downloading idna-2.6-py2.py3-none-any.whl (56 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 56.5/56.5 kB 233.6 MB/s eta 0:00:00
+Collecting mod-wsgi==4.6.6
+  Downloading mod_wsgi-4.6.6.tar.gz (490 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 490.3/490.3 kB 316.3 MB/s eta 0:00:00
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting Pillow==5.0.0
+  Downloading Pillow-5.0.0.tar.gz (14.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 14.2/14.2 MB 134.2 MB/s eta 0:00:00
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting psycopg2==2.8.6
+  Downloading psycopg2-2.8.6.tar.gz (383 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 383.8/383.8 kB 192.0 MB/s eta 0:00:00
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting pytz==2017.3
+  Downloading pytz-2017.3-py2.py3-none-any.whl (511 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 511.7/511.7 kB 317.5 MB/s eta 0:00:00
+Collecting requests==2.22.0
+  Downloading requests-2.22.0-py2.py3-none-any.whl (57 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 58.0/58.0 kB 233.7 MB/s eta 0:00:00
+Collecting schedule==0.5.0
+  Downloading schedule-0.5.0-py2.py3-none-any.whl (8.6 kB)
+Collecting urllib3==1.25.3
+  Downloading urllib3-1.25.3-py2.py3-none-any.whl (150 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 150.9/150.9 kB 295.7 MB/s eta 0:00:00
+Building wheels for collected packages: mod-wsgi, Pillow, psycopg2
+  Building wheel for mod-wsgi (setup.py): started
+  Building wheel for mod-wsgi (setup.py): finished with status 'done'
+  Created wheel for mod-wsgi: filename=mod_wsgi-4.6.6-cp38-cp38-linux_x86_64.whl size=672563 sha256=e938853e009aeceb3d3226ba60b0d60ca0040be43f65c444151038fdff0e364b
+  Stored in directory: /tmp/pip-ephem-wheel-cache-545tmtij/wheels/13/11/86/0bca0fe95814ec19a77897e1c546099793c6cf4a91e7a22ec2
+  Building wheel for Pillow (setup.py): started
+  Building wheel for Pillow (setup.py): finished with status 'done'
+  Created wheel for Pillow: filename=Pillow-5.0.0-cp38-cp38-linux_x86_64.whl size=823883 sha256=2ad919c291be26bbd58b475a0425bae87f248d172e4e6c2bd8bfc35ca445f1ed
+  Stored in directory: /tmp/pip-ephem-wheel-cache-545tmtij/wheels/07/26/c5/db51d406485027c3d61c84b33e3212fa8824a00afecc582387
+  Building wheel for psycopg2 (setup.py): started
+  Building wheel for psycopg2 (setup.py): finished with status 'done'
+  Created wheel for psycopg2: filename=psycopg2-2.8.6-cp38-cp38-linux_x86_64.whl size=390403 sha256=73353521ebaf05c942b1408fca12cd3daeb64154b00949f443ca248741d059a5
+  Stored in directory: /tmp/pip-ephem-wheel-cache-545tmtij/wheels/70/5e/69/8a020d78c09043156a7df0b64529e460fbd922ca065c4b795c
+Successfully built mod-wsgi Pillow psycopg2
+Installing collected packages: schedule, pytz, mod-wsgi, idna, dj-database-url, click, chardet, certifi, urllib3, psycopg2, Pillow, Django, requests
+  Attempting uninstall: click
+    Found existing installation: click 8.1.3
+    Uninstalling click-8.1.3:
+      Successfully uninstalled click-8.1.3
+Successfully installed Django-2.0.13 Pillow-5.0.0 certifi-2018.1.18 chardet-3.0.4 click-6.7 dj-database-url-0.4.2 idna-2.6 mod-wsgi-4.6.6 psycopg2-2.8.6 pytz-2017.3 requests-2.22.0 schedule-0.5.0 urllib3-1.25.3
+ -----> Running /opt/app-root/src/.s2i/action_hooks/build
+ -----> Environment variables set for build script.
+MANPATH=/opt/rh/rh-nodejs14/root/usr/share/man:/opt/rh/httpd24/root/usr/share/man:/opt/rh/rh-python38/root/usr/share/man:/opt/rh/python38/root/usr/share/man:/opt/rh/httpd24/root/usr/share/man:/opt/rh/rh-nodejs14/root/usr/share/man
+HOSTNAME=51f2e4c495d5
+APP_ROOT=/opt/app-root
+PIP_NO_CACHE_DIR=off
+TERM=xterm
+OPENSHIFT_BUILD_COMMIT=9c4f338ab5f3a5ae379ecaa5bcc7d449fa41648e
+LIBRARY_PATH=/opt/rh/httpd24/root/usr/lib64:/opt/rh/httpd24/root/usr/lib64
+OPENSHIFT_BUILD_NAME=meu-blog-1
+PYTHONUNBUFFERED=1
+DESCRIPTION=Python 3.8 available as container is a base platform for building and running various Python 3.8 applications and frameworks. Python is an easy to learn, powerful programming language. It has efficient high-level data structures and a simple but effective approach to object-oriented programming. Python's elegant syntax and dynamic typing, together with its interpreted nature, make it an ideal language for scripting and rapid application development in many areas on most platforms.
+NODEJS_SCL=rh-nodejs14
+X_SCLS=rh-nodejs14 httpd24 rh-python38
+LC_ALL=en_US.UTF-8
+OPENSHIFT_BUILD_SOURCE=https://github.com/openshift-katacoda/blog-django-py.git
+PYTHONIOENCODING=UTF-8
+LD_LIBRARY_PATH=/opt/rh/rh-nodejs14/root/usr/lib64:/opt/rh/httpd24/root/usr/lib64:/opt/rh/rh-python38/root/usr/lib64:/opt/rh/rh-nodejs14/root/usr/lib64:/opt/rh/httpd24/root/usr/lib64:/opt/rh/python38/root/usr/lib64
+VIRTUAL_ENV=/opt/app-root
+CNB_STACK_ID=com.redhat.stacks.ubi7-python-38
+PYTHON_VERSION=3.8
+PATH=/opt/app-root/bin:/opt/rh/rh-nodejs14/root/usr/bin:/opt/rh/httpd24/root/usr/bin:/opt/rh/httpd24/root/usr/sbin:/opt/app-root/src/bin:/opt/app-root/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/rh/rh-python38/root/usr/bin:/opt/app-root/src/.local/bin/:/opt/rh/rh-nodejs14/root/usr/bin:/opt/rh/httpd24/root/usr/bin:/opt/rh/python38/root/usr/bin:/opt/rh/httpd24/root/usr/sbin:/opt/rh/rh-python38/root/usr/local/bin
+CNB_GROUP_ID=0
+OPENSHIFT_BUILD_NAMESPACE=rm-343002
+DISABLE_MIGRATE=1
+STI_SCRIPTS_URL=image:///usr/libexec/s2i
+PWD=/opt/app-root/src
+STI_SCRIPTS_PATH=/usr/libexec/s2i
+LANG=en_US.UTF-8
+S2I_APPLICATION_PATH=/opt/app-root
+SUMMARY=Platform for building and running Python 3.8 applications
+PLATFORM=el7
+S2I_SCRIPTS_PATH=/usr/libexec/s2i
+HOME=/opt/app-root/src
+SHLVL=3
+PYTHON_SCL_VERSION=38
+S2I_SOURCE_PATH=/opt/app-root/src
+PYTHONPATH=/opt/rh/rh-nodejs14/root/usr/lib/python2.7/site-packages:/opt/rh/rh-nodejs14/root/usr/lib/python2.7/site-packages
+XDG_DATA_DIRS=/opt/rh/python38/root/usr/share:/opt/rh/rh-python38/root/usr/share:/usr/local/share:/usr/share
+PKG_CONFIG_PATH=/opt/rh/httpd24/root/usr/lib64/pkgconfig:/opt/rh/python38/root/usr/lib64/pkgconfig:/opt/rh/httpd24/root/usr/lib64/pkgconfig:/opt/rh/rh-python38/root/usr/lib64/pkgconfig
+DISABLE_COLLECTSTATIC=1
+container=oci
+CNB_USER_ID=1001
+_=/usr/bin/env
+ -----> Current working directory.
+/opt/app-root/src
+ -----> Running collection of Django static resources.
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/css/autocomplete.css'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/css/base.css'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/css/changelists.css'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/css/dashboard.css'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/css/fonts.css'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/css/forms.css'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/css/login.css'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/css/responsive.css'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/css/responsive_rtl.css'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/css/rtl.css'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/css/widgets.css'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/css/vendor/select2/LICENSE-SELECT2.md'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/css/vendor/select2/select2.css'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/css/vendor/select2/select2.min.css'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/fonts/LICENSE.txt'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/fonts/README.txt'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/fonts/Roboto-Bold-webfont.woff'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/fonts/Roboto-Light-webfont.woff'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/fonts/Roboto-Regular-webfont.woff'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/img/LICENSE'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/img/README.txt'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/img/calendar-icons.svg'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/img/icon-addlink.svg'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/img/icon-alert.svg'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/img/icon-calendar.svg'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/img/icon-changelink.svg'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/img/icon-clock.svg'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/img/icon-deletelink.svg'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/img/icon-no.svg'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/img/icon-unknown-alt.svg'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/img/icon-unknown.svg'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/img/icon-yes.svg'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/img/inline-delete.svg'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/img/search.svg'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/img/selector-icons.svg'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/img/sorting-icons.svg'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/img/tooltag-add.svg'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/img/tooltag-arrowright.svg'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/img/gis/move_vertex_off.svg'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/img/gis/move_vertex_on.svg'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/SelectBox.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/SelectFilter2.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/actions.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/actions.min.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/autocomplete.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/calendar.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/cancel.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/change_form.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/collapse.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/collapse.min.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/core.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/inlines.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/inlines.min.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/jquery.init.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/popup_response.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/prepopulate.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/prepopulate.min.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/prepopulate_init.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/timeparse.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/urlify.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/admin/DateTimeShortcuts.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/admin/RelatedObjectLookups.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/jquery/LICENSE-JQUERY.txt'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/jquery/jquery.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/jquery/jquery.min.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/LICENSE-SELECT2.md'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/select2.full.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/select2.full.min.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/ar.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/az.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/bg.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/ca.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/cs.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/da.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/de.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/el.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/en.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/es.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/et.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/eu.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/fa.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/fi.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/fr.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/gl.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/he.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/hi.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/hr.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/hu.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/id.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/is.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/it.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/ja.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/km.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/ko.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/lt.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/lv.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/mk.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/ms.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/nb.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/nl.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/pl.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/pt-BR.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/pt.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/ro.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/ru.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/sk.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/sr-Cyrl.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/sr.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/sv.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/th.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/tr.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/uk.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/vi.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/zh-CN.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/select2/i18n/zh-TW.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/xregexp/LICENSE-XREGEXP.txt'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/xregexp/xregexp.js'
+Copying '/opt/app-root/lib64/python3.8/site-packages/django/contrib/admin/static/admin/js/vendor/xregexp/xregexp.min.js'
+Copying '/opt/app-root/src/blog/static/css/blog.css'
+
+119 static files copied to '/opt/app-root/src/static'.
+ -----> Creating directory for uploaded image files.
+ -----> Removing wheelhouse directory from final image.
+ -----> Contents of the current working directory after build run.
+.:
+total 44
+4 drwxrwxr-x. 1 default root 4096 Jul 15 23:37 .
+0 drwxrwxr-x. 1 default root   39 Mar  2 09:57 ..
+4 -rwxrwxr-x. 1 default root 1454 Jul 15 23:36 app.sh
+0 drwxrwxr-x. 6 default root  233 Jul 15 23:37 blog
+0 drwxrwxr-x. 2 default root   25 Jul 15 23:36 configs
+4 -rw-rw-r--. 1 default root  230 Jul 15 23:36 cronjobs.py
+4 -rw-rw-r--. 1 default root  430 Jul 15 23:36 Dockerfile
+0 drwxrwxr-x. 8 default root  178 Jul 15 23:36 .git
+4 -rw-rw-r--. 1 default root   30 Jul 15 23:36 .gitignore
+0 drwxrwxr-x. 2 default root   25 Jul 15 23:36 htdocs
+0 drwxrwxr-x. 3 default root  111 Jul 15 23:37 katacoda
+4 -rwxrwxr-x. 1 default root  806 Jul 15 23:36 manage.py
+0 drwxr-xr-x. 3 default root   20 Jul 15 23:37 media
+0 drwxrwxr-x. 1 default root   19 Mar  2 09:41 .pki
+4 -rw-rw-r--. 1 default root  944 Jul 15 23:36 posts.json
+8 -rw-rw-r--. 1 default root 7861 Jul 15 23:36 README.md
+4 -rw-rw-r--. 1 default root  201 Jul 15 23:36 requirements.txt
+4 -rw-rw----. 1 default root 1024 Mar  2 09:56 .rnd
+0 drwxrwxr-x. 5 default root   68 Jul 15 23:36 .s2i
+0 drwxr-xr-x. 4 default root   30 Jul 15 23:37 static
+0 drwxrwxr-x. 2 default root  148 Jul 15 23:36 templates
+
+./blog:
+total 36
+0 drwxrwxr-x. 6 default root  233 Jul 15 23:37 .
+4 drwxrwxr-x. 1 default root 4096 Jul 15 23:37 ..
+4 -rw-rw-r--. 1 default root   85 Jul 15 23:36 admin.py
+4 -rw-rw-r--. 1 default root   83 Jul 15 23:36 apps.py
+4 -rw-rw-r--. 1 default root  342 Jul 15 23:36 context_processors.py
+4 -rw-rw-r--. 1 default root  167 Jul 15 23:36 forms.py
+0 -rw-rw-r--. 1 default root    0 Jul 15 23:36 __init__.py
+0 drwxrwxr-x. 2 default root   82 Jul 15 23:36 migrations
+4 -rw-rw-r--. 1 default root  611 Jul 15 23:36 models.py
+0 drwxr-xr-x. 2 default root   94 Jul 15 23:37 __pycache__
+0 drwxrwxr-x. 3 default root   17 Jul 15 23:36 static
+0 drwxrwxr-x. 3 default root   18 Jul 15 23:36 templates
+4 -rw-rw-r--. 1 default root   60 Jul 15 23:36 tests.py
+4 -rw-rw-r--. 1 default root  471 Jul 15 23:36 urls.py
+4 -rw-rw-r--. 1 default root 1456 Jul 15 23:36 views.py
+
+./blog/migrations:
+total 8
+0 drwxrwxr-x. 2 default root   82 Jul 15 23:36 .
+0 drwxrwxr-x. 6 default root  233 Jul 15 23:37 ..
+4 -rw-rw-r--. 1 default root 1140 Jul 15 23:36 0001_initial.py
+4 -rw-rw-r--. 1 default root  422 Jul 15 23:36 0002_auto_20190618_0147.py
+0 -rw-rw-r--. 1 default root    0 Jul 15 23:36 __init__.py
+
+./blog/__pycache__:
+total 12
+0 drwxr-xr-x. 2 default root  94 Jul 15 23:37 .
+0 drwxrwxr-x. 6 default root 233 Jul 15 23:37 ..
+4 -rw-r--r--. 1 default root 236 Jul 15 23:37 admin.cpython-38.pyc
+4 -rw-r--r--. 1 default root 125 Jul 15 23:37 __init__.cpython-38.pyc
+4 -rw-r--r--. 1 default root 993 Jul 15 23:37 models.cpython-38.pyc
+
+./blog/static:
+total 0
+0 drwxrwxr-x. 3 default root  17 Jul 15 23:36 .
+0 drwxrwxr-x. 6 default root 233 Jul 15 23:37 ..
+0 drwxrwxr-x. 2 default root  22 Jul 15 23:36 css
+
+./blog/static/css:
+total 4
+0 drwxrwxr-x. 2 default root  22 Jul 15 23:36 .
+0 drwxrwxr-x. 3 default root  17 Jul 15 23:36 ..
+4 -rw-rw-r--. 1 default root 863 Jul 15 23:36 blog.css
+
+./blog/templates:
+total 0
+0 drwxrwxr-x. 3 default root  18 Jul 15 23:36 .
+0 drwxrwxr-x. 6 default root 233 Jul 15 23:37 ..
+0 drwxrwxr-x. 2 default root 109 Jul 15 23:36 blog
+
+./blog/templates/blog:
+total 20
+0 drwxrwxr-x. 2 default root  109 Jul 15 23:36 .
+0 drwxrwxr-x. 3 default root   18 Jul 15 23:36 ..
+4 -rw-rw-r--. 1 default root 1403 Jul 15 23:36 base.html
+4 -rw-rw-r--. 1 default root  237 Jul 15 23:36 login.html
+4 -rw-rw-r--. 1 default root  613 Jul 15 23:36 post_detail.html
+4 -rw-rw-r--. 1 default root  287 Jul 15 23:36 post_edit.html
+4 -rw-rw-r--. 1 default root  381 Jul 15 23:36 post_list.html
+
+./configs:
+total 8
+0 drwxrwxr-x. 2 default root   25 Jul 15 23:36 .
+4 drwxrwxr-x. 1 default root 4096 Jul 15 23:37 ..
+4 -rw-rw-r--. 1 default root  900 Jul 15 23:36 webdav.conf
+
+./.git:
+total 40
+0 drwxrwxr-x.  8 default root  178 Jul 15 23:36 .
+4 drwxrwxr-x.  1 default root 4096 Jul 15 23:37 ..
+0 drwxrwxr-x.  2 default root    6 Jul 15 23:36 branches
+4 -rw-rw-r--.  1 default root  315 Jul 15 23:36 config
+4 -rw-rw-r--.  1 default root   73 Jul 15 23:36 description
+4 -rw-rw-r--.  1 default root   23 Jul 15 23:36 HEAD
+4 drwxrwxr-x.  2 default root 4096 Jul 15 23:36 hooks
+8 -rw-rw-r--.  1 default root 5171 Jul 15 23:36 index
+0 drwxrwxr-x.  2 default root   21 Jul 15 23:36 info
+0 drwxrwxr-x.  3 default root   30 Jul 15 23:36 logs
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 objects
+4 -rw-rw-r--.  1 default root  114 Jul 15 23:36 packed-refs
+0 drwxrwxr-x.  5 default root   46 Jul 15 23:36 refs
+4 -rw-rw-r--.  1 default root   41 Jul 15 23:36 shallow
+
+./.git/branches:
+total 0
+0 drwxrwxr-x. 2 default root   6 Jul 15 23:36 .
+0 drwxrwxr-x. 8 default root 178 Jul 15 23:36 ..
+
+./.git/hooks:
+total 52
+4 drwxrwxr-x. 2 default root 4096 Jul 15 23:36 .
+0 drwxrwxr-x. 8 default root  178 Jul 15 23:36 ..
+4 -rwxrwxr-x. 1 default root  478 Jul 15 23:36 applypatch-msg.sample
+4 -rwxrwxr-x. 1 default root  896 Jul 15 23:36 commit-msg.sample
+4 -rwxrwxr-x. 1 default root 3327 Jul 15 23:36 fsmonitor-watchman.sample
+4 -rwxrwxr-x. 1 default root  189 Jul 15 23:36 post-update.sample
+4 -rwxrwxr-x. 1 default root  424 Jul 15 23:36 pre-applypatch.sample
+4 -rwxrwxr-x. 1 default root 1638 Jul 15 23:36 pre-commit.sample
+4 -rwxrwxr-x. 1 default root 1492 Jul 15 23:36 prepare-commit-msg.sample
+4 -rwxrwxr-x. 1 default root 1348 Jul 15 23:36 pre-push.sample
+8 -rwxrwxr-x. 1 default root 4898 Jul 15 23:36 pre-rebase.sample
+4 -rwxrwxr-x. 1 default root  544 Jul 15 23:36 pre-receive.sample
+4 -rwxrwxr-x. 1 default root 3610 Jul 15 23:36 update.sample
+
+./.git/info:
+total 4
+0 drwxrwxr-x. 2 default root  21 Jul 15 23:36 .
+0 drwxrwxr-x. 8 default root 178 Jul 15 23:36 ..
+4 -rw-rw-r--. 1 default root 240 Jul 15 23:36 exclude
+
+./.git/logs:
+total 4
+0 drwxrwxr-x. 3 default root  30 Jul 15 23:36 .
+0 drwxrwxr-x. 8 default root 178 Jul 15 23:36 ..
+4 -rw-rw-r--. 1 default root 204 Jul 15 23:36 HEAD
+0 drwxrwxr-x. 4 default root  34 Jul 15 23:36 refs
+
+./.git/logs/refs:
+total 0
+0 drwxrwxr-x. 4 default root 34 Jul 15 23:36 .
+0 drwxrwxr-x. 3 default root 30 Jul 15 23:36 ..
+0 drwxrwxr-x. 2 default root 20 Jul 15 23:36 heads
+0 drwxrwxr-x. 3 default root 20 Jul 15 23:36 remotes
+
+./.git/logs/refs/heads:
+total 4
+0 drwxrwxr-x. 2 default root  20 Jul 15 23:36 .
+0 drwxrwxr-x. 4 default root  34 Jul 15 23:36 ..
+4 -rw-rw-r--. 1 default root 204 Jul 15 23:36 master
+
+./.git/logs/refs/remotes:
+total 0
+0 drwxrwxr-x. 3 default root 20 Jul 15 23:36 .
+0 drwxrwxr-x. 4 default root 34 Jul 15 23:36 ..
+0 drwxrwxr-x. 2 default root 18 Jul 15 23:36 origin
+
+./.git/logs/refs/remotes/origin:
+total 4
+0 drwxrwxr-x. 2 default root  18 Jul 15 23:36 .
+0 drwxrwxr-x. 3 default root  20 Jul 15 23:36 ..
+4 -rw-rw-r--. 1 default root 204 Jul 15 23:36 HEAD
+
+./.git/objects:
+total 4
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 .
+0 drwxrwxr-x.  8 default root  178 Jul 15 23:36 ..
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 01
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 0b
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 0c
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 10
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 11
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 16
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 18
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 20
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 28
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 29
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 30
+0 drwxrwxr-x.  2 default root   98 Jul 15 23:36 31
+0 drwxrwxr-x.  2 default root   98 Jul 15 23:36 33
+0 drwxrwxr-x.  2 default root   98 Jul 15 23:36 36
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 39
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 3a
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 41
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 42
+0 drwxrwxr-x.  2 default root  144 Jul 15 23:36 47
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 4b
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 4c
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 50
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 53
+0 drwxrwxr-x.  2 default root   98 Jul 15 23:36 54
+0 drwxrwxr-x.  2 default root   98 Jul 15 23:36 5c
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 60
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 64
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 66
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 6e
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 71
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 73
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 77
+0 drwxrwxr-x.  2 default root   98 Jul 15 23:36 79
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 7b
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 7c
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 7e
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 81
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 87
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 89
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 8e
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 8f
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 92
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 93
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 94
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 9c
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 ae
+0 drwxrwxr-x.  2 default root  144 Jul 15 23:36 b3
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 be
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 c9
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 cc
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 d1
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 df
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 e2
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 e6
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 eb
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 f7
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 fc
+0 drwxrwxr-x.  2 default root    6 Jul 15 23:36 info
+0 drwxrwxr-x.  2 default root    6 Jul 15 23:36 pack
+
+./.git/objects/01:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  509 Jul 15 23:36 d56f9792190ba36de2faed7b1326213edf37cd
+
+./.git/objects/0b:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  467 Jul 15 23:36 93a7a5ec2d49f0e03cae0c7ad14c5452772b75
+
+./.git/objects/0c:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  387 Jul 15 23:36 7c3d3f28c62acb4e258f298f59dee64f8f8734
+
+./.git/objects/10:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root 3067 Jul 15 23:36 0af93885e25de005cd2584524cb6aef584f69a
+
+./.git/objects/11:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  126 Jul 15 23:36 04790995a81d7cd8746591e7033b0aa89854e2
+
+./.git/objects/16:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  630 Jul 15 23:36 e2674dfe4d1072220b2415f7b7f89f6877ad81
+
+./.git/objects/18:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root   49 Jul 15 23:36 ed3433083ef51e52dab3b7893b5a890ca5e63b
+
+./.git/objects/20:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root 1879 Jul 15 23:36 da5332f93d7ef93b6bc0c79348c6d0a98a84cc
+
+./.git/objects/28:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  480 Jul 15 23:36 bbd4323cd37005c1d0b2e4ee2f43d1ea6cb5a8
+
+./.git/objects/29:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  136 Jul 15 23:36 c8571a743b02fe0301cc543f2b814cbff488c0
+
+./.git/objects/30:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  282 Jul 15 23:36 e466922ec3ac56cd653c7a72f978f7bbfe1477
+
+./.git/objects/31:
+total 12
+0 drwxrwxr-x.  2 default root   98 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root 2762 Jul 15 23:36 30b5f9399f5b8aff6e56e7b4d5c3cc4987654e
+4 -r--rw-r--.  1 default root  273 Jul 15 23:36 be32e343812d8cc1181c1dedb4881686cc735c
+
+./.git/objects/33:
+total 12
+0 drwxrwxr-x.  2 default root   98 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  220 Jul 15 23:36 014d1dc9c065476b0e23fe607564aa0338011c
+4 -r--rw-r--.  1 default root  212 Jul 15 23:36 4d9592a2b0343b2e93785f4cc2a2bfd9835fbb
+
+./.git/objects/36:
+total 12
+0 drwxrwxr-x.  2 default root   98 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  176 Jul 15 23:36 61b5590fdb62f4d842758897666de4a3490d86
+4 -r--rw-r--.  1 default root  544 Jul 15 23:36 86ba435560faca0432ae67a40a5a9cf15f5fcb
+
+./.git/objects/39:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  304 Jul 15 23:36 1fa4ca28bffebb0ba79e15cc94a016194460e0
+
+./.git/objects/3a:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  167 Jul 15 23:36 c04f90116b8af93b9429ea81a5c821c70e0b68
+
+./.git/objects/41:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  285 Jul 15 23:36 7440fe071c07c658f6a26f0ad7f5f1c42068f4
+
+./.git/objects/42:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root   50 Jul 15 23:36 df77381a93f473073d8d3dcf4cbef6d7df2f25
+
+./.git/objects/47:
+total 16
+0 drwxrwxr-x.  2 default root  144 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  133 Jul 15 23:36 1c085f7105a0e14eb45324f388516641c095b6
+4 -r--rw-r--.  1 default root  698 Jul 15 23:36 3b012b387bdfee7333e1778805bdd5ee2bb2fc
+4 -r--rw-r--.  1 default root   84 Jul 15 23:36 f03fdd3df00b3730e5841d9c5d76bf4b98efff
+
+./.git/objects/4b:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  264 Jul 15 23:36 0e7ec7fd48f10659e855418dc33353b8d8f8a1
+
+./.git/objects/4c:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  400 Jul 15 23:36 f9304cf78ef31ee8ee082a9fa886d28a0648b1
+
+./.git/objects/50:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  156 Jul 15 23:36 4c70effba66b4c054a1b3dd98cd6883c19fb6c
+
+./.git/objects/53:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  755 Jul 15 23:36 b17d13acb60ba8f689bf19759f37bf8c876cbb
+
+./.git/objects/54:
+total 12
+0 drwxrwxr-x.  2 default root   98 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root   55 Jul 15 23:36 25e199ed96165782be8a252c2620108de2e853
+4 -r--rw-r--.  1 default root  132 Jul 15 23:36 82b27dc325214d5c234ddb510f8b589249a5b0
+
+./.git/objects/5c:
+total 12
+0 drwxrwxr-x.  2 default root   98 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root   77 Jul 15 23:36 2336917bf160c3aa91bbb39124dafe1ca199db
+4 -r--rw-r--.  1 default root  316 Jul 15 23:36 7fefd0f80d6d8dd0aacb9934bc54fd27f651f8
+
+./.git/objects/60:
+total 12
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+8 -r--rw-r--.  1 default root 5992 Jul 15 23:36 b03ecb6736965cc9e854dc9400bf0317d7da84
+
+./.git/objects/64:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  866 Jul 15 23:36 22df3b86ca0828aa642dfe8bd27636f0ad64df
+
+./.git/objects/66:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  483 Jul 15 23:36 a492abd7e1a85193dff1123e6d089cd6f9dd12
+
+./.git/objects/6e:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  577 Jul 15 23:36 430ccf7e78305df406be56c4bab4ff1b134085
+
+./.git/objects/71:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  573 Jul 15 23:36 323e9a8290471fb89b8acff0d2d4086ebb37f0
+
+./.git/objects/73:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  233 Jul 15 23:36 82f363303521cfda1c5fc31d1e68eba2ebc54f
+
+./.git/objects/77:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  150 Jul 15 23:36 b747ef56735aa9a41ea300ee5fcee2945aa683
+
+./.git/objects/79:
+total 12
+0 drwxrwxr-x.  2 default root   98 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root   85 Jul 15 23:36 30587867e1e6535d64e8d6254d75ccc0f95239
+4 -r--rw-r--.  1 default root  212 Jul 15 23:36 ccb0209d12b705bba57c75c24b4261ad1fda7f
+
+./.git/objects/7b:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  169 Jul 15 23:36 6c16cd1bd01a5302ce67d9703f4fba2d5450ba
+
+./.git/objects/7c:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root   72 Jul 15 23:36 e503c2dd97ba78597f6ff6e4393132753573f6
+
+./.git/objects/7e:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root   45 Jul 15 23:36 a440e0062e438d68ee397a4b7a4fb12f3f9bfd
+
+./.git/objects/81:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root 2300 Jul 15 23:36 f7a18bc7b9814fb983941300cd1ba81a6199d8
+
+./.git/objects/87:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root   53 Jul 15 23:36 98eb3aa57cc868e41e87297c4cb4a9b45d0f7b
+
+./.git/objects/89:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  178 Jul 15 23:36 3744ec34303537054e6301501677be3b4c151d
+
+./.git/objects/8e:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root 3161 Jul 15 23:36 2970228b6a43963de57f09e3dd5e8ac83d0626
+
+./.git/objects/8f:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  109 Jul 15 23:36 c13c603440d6813a9d4ac6ab8fbaeb527a35d2
+
+./.git/objects/92:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  180 Jul 15 23:36 f6d282dba5a1319dc39fc61da85a15f1935c2a
+
+./.git/objects/93:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  165 Jul 15 23:36 28a26374e56ffc31c321a4add3dc35515f5bd8
+
+./.git/objects/94:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  315 Jul 15 23:36 24c4885bc449b167e3d2ba35bec5ac9c028fef
+
+./.git/objects/9c:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  621 Jul 15 23:36 4f338ab5f3a5ae379ecaa5bcc7d449fa41648e
+
+./.git/objects/ae:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  466 Jul 15 23:36 5bfc2b7db0f07d74cf596766e3697df90ccdb5
+
+./.git/objects/b3:
+total 16
+0 drwxrwxr-x.  2 default root  144 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  310 Jul 15 23:36 751afbf5533955da0cf625b3b5ff01592ec84b
+4 -r--rw-r--.  1 default root   45 Jul 15 23:36 96edee445b3d2348838b3c66b1affa58e6de48
+4 -r--rw-r--.  1 default root   58 Jul 15 23:36 f5816c8ef5e3c2049a7039a39be7869a0f36cf
+
+./.git/objects/be:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  364 Jul 15 23:36 f3e4d8b67049d287731c26ef5edb4d5d629e36
+
+./.git/objects/c9:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root   56 Jul 15 23:36 6bd78b6a215921bdbbc586a8d44eaa33941a73
+
+./.git/objects/cc:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  336 Jul 15 23:36 6eb503b6a4ecb4555ab39d442853075ee2d22b
+
+./.git/objects/d1:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  119 Jul 15 23:36 adba3976f0f71bd36f5c10b0b0b0666d198282
+
+./.git/objects/df:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  461 Jul 15 23:36 6b5cf7896e8e952eb169d4ab9864724330d3ef
+
+./.git/objects/e2:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root   46 Jul 15 23:36 6903f47f9a9df01619841a4ffe51469f61d077
+
+./.git/objects/e6:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root   15 Jul 15 23:36 9de29bb2d1d6434b8b29ae775ad8c2e48c5391
+
+./.git/objects/eb:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  469 Jul 15 23:36 c528861082ae02662018bed9ca6db306c2fba2
+
+./.git/objects/f7:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  449 Jul 15 23:36 76eb5c267727f84c7cabcd5dbecb70a3894123
+
+./.git/objects/fc:
+total 8
+0 drwxrwxr-x.  2 default root   52 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+4 -r--rw-r--.  1 default root  354 Jul 15 23:36 4a760b68c4f5eab8e9bdf5150897aa87db8f09
+
+./.git/objects/info:
+total 4
+0 drwxrwxr-x.  2 default root    6 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+
+./.git/objects/pack:
+total 4
+0 drwxrwxr-x.  2 default root    6 Jul 15 23:36 .
+4 drwxrwxr-x. 61 default root 4096 Jul 15 23:36 ..
+
+./.git/refs:
+total 0
+0 drwxrwxr-x. 5 default root  46 Jul 15 23:36 .
+0 drwxrwxr-x. 8 default root 178 Jul 15 23:36 ..
+0 drwxrwxr-x. 2 default root  20 Jul 15 23:36 heads
+0 drwxrwxr-x. 3 default root  20 Jul 15 23:36 remotes
+0 drwxrwxr-x. 2 default root   6 Jul 15 23:36 tags
+
+./.git/refs/heads:
+total 4
+0 drwxrwxr-x. 2 default root 20 Jul 15 23:36 .
+0 drwxrwxr-x. 5 default root 46 Jul 15 23:36 ..
+4 -rw-rw-r--. 1 default root 41 Jul 15 23:36 master
+
+./.git/refs/remotes:
+total 0
+0 drwxrwxr-x. 3 default root 20 Jul 15 23:36 .
+0 drwxrwxr-x. 5 default root 46 Jul 15 23:36 ..
+0 drwxrwxr-x. 2 default root 18 Jul 15 23:36 origin
+
+./.git/refs/remotes/origin:
+total 4
+0 drwxrwxr-x. 2 default root 18 Jul 15 23:36 .
+0 drwxrwxr-x. 3 default root 20 Jul 15 23:36 ..
+4 -rw-rw-r--. 1 default root 32 Jul 15 23:36 HEAD
+
+./.git/refs/tags:
+total 0
+0 drwxrwxr-x. 2 default root  6 Jul 15 23:36 .
+0 drwxrwxr-x. 5 default root 46 Jul 15 23:36 ..
+
+./htdocs:
+total 36
+ 0 drwxrwxr-x. 2 default root    25 Jul 15 23:36 .
+ 4 drwxrwxr-x. 1 default root  4096 Jul 15 23:37 ..
+32 -rw-rw-r--. 1 default root 32038 Jul 15 23:36 favicon.ico
+
+./katacoda:
+total 24
+0 drwxrwxr-x. 3 default root  111 Jul 15 23:37 .
+4 drwxrwxr-x. 1 default root 4096 Jul 15 23:37 ..
+4 -rw-rw-r--. 1 default root  193 Jul 15 23:36 healthz.py
+0 -rw-rw-r--. 1 default root    0 Jul 15 23:36 __init__.py
+0 drwxr-xr-x. 2 default root   68 Jul 15 23:37 __pycache__
+8 -rw-rw-r--. 1 default root 6578 Jul 15 23:36 settings.py
+4 -rw-rw-r--. 1 default root 1088 Jul 15 23:36 urls.py
+4 -rw-rw-r--. 1 default root  394 Jul 15 23:36 wsgi.py
+
+./katacoda/__pycache__:
+total 12
+0 drwxr-xr-x. 2 default root   68 Jul 15 23:37 .
+0 drwxrwxr-x. 3 default root  111 Jul 15 23:37 ..
+4 -rw-r--r--. 1 default root  129 Jul 15 23:37 __init__.cpython-38.pyc
+8 -rw-r--r--. 1 default root 4603 Jul 15 23:37 settings.cpython-38.pyc
+
+./media:
+total 4
+0 drwxr-xr-x. 3 default root   20 Jul 15 23:37 .
+4 drwxrwxr-x. 1 default root 4096 Jul 15 23:37 ..
+0 drwxrwxr-x. 2 default root    6 Jul 15 23:37 images
+
+./media/images:
+total 0
+0 drwxrwxr-x. 2 default root  6 Jul 15 23:37 .
+0 drwxr-xr-x. 3 default root 20 Jul 15 23:37 ..
+
+./.pki:
+total 4
+0 drwxrwxr-x. 1 default root   19 Mar  2 09:41 .
+4 drwxrwxr-x. 1 default root 4096 Jul 15 23:37 ..
+0 drwxrwxr-x. 1 default root    6 Mar  2 09:41 nssdb
+
+./.pki/nssdb:
+total 0
+0 drwxrwxr-x. 1 default root  6 Mar  2 09:41 .
+0 drwxrwxr-x. 1 default root 19 Mar  2 09:41 ..
+
+./.s2i:
+total 8
+0 drwxrwxr-x. 5 default root   68 Jul 15 23:36 .
+4 drwxrwxr-x. 1 default root 4096 Jul 15 23:37 ..
+0 drwxrwxr-x. 2 default root  187 Jul 15 23:36 action_hooks
+0 drwxrwxr-x. 2 default root    6 Jul 15 23:36 bin
+4 -rw-rw-r--. 1 default root   42 Jul 15 23:36 environment
+0 drwxrwxr-x. 3 default root   20 Jul 15 23:36 jobs
+
+./.s2i/action_hooks:
+total 44
+0 drwxrwxr-x. 2 default root  187 Jul 15 23:36 .
+0 drwxrwxr-x. 5 default root   68 Jul 15 23:36 ..
+4 -rwxrwxr-x. 1 default root  813 Jul 15 23:36 alive
+4 -rwxrwxr-x. 1 default root 1181 Jul 15 23:36 build
+4 -rw-rw-r--. 1 default root 1486 Jul 15 23:36 build_env
+4 -rw-rw-r--. 1 default root  562 Jul 15 23:36 check-database.py
+4 -rw-rw-r--. 1 default root  144 Jul 15 23:36 check-server.py
+4 -rwxrwxr-x. 1 default root 2022 Jul 15 23:36 deploy
+4 -rw-rw-r--. 1 default root  890 Jul 15 23:36 deploy_env
+4 -rwxrwxr-x. 1 default root  106 Jul 15 23:36 migrate
+4 -rwxrwxr-x. 1 default root 1587 Jul 15 23:36 pre_build
+4 -rwxrwxr-x. 1 default root  815 Jul 15 23:36 ready
+4 -rwxrwxr-x. 1 default root  707 Jul 15 23:36 setup
+
+./.s2i/bin:
+total 0
+0 drwxrwxr-x. 2 default root  6 Jul 15 23:36 .
+0 drwxrwxr-x. 5 default root 68 Jul 15 23:36 ..
+
+./.s2i/jobs:
+total 0
+0 drwxrwxr-x. 3 default root 20 Jul 15 23:36 .
+0 drwxrwxr-x. 5 default root 68 Jul 15 23:36 ..
+0 drwxrwxr-x. 2 default root 27 Jul 15 23:36 hourly
+
+./.s2i/jobs/hourly:
+total 4
+0 drwxrwxr-x. 2 default root 27 Jul 15 23:36 .
+0 drwxrwxr-x. 3 default root 20 Jul 15 23:36 ..
+4 -rwxrwxr-x. 1 default root 70 Jul 15 23:36 clearsessions
+
+./static:
+total 4
+0 drwxr-xr-x. 4 default root   30 Jul 15 23:37 .
+4 drwxrwxr-x. 1 default root 4096 Jul 15 23:37 ..
+0 drwxr-xr-x. 6 default root   51 Jul 15 23:37 admin
+0 drwxr-xr-x. 2 default root   22 Jul 15 23:37 css
+
+./static/admin:
+total 8
+0 drwxr-xr-x. 6 default root   51 Jul 15 23:37 .
+0 drwxr-xr-x. 4 default root   30 Jul 15 23:37 ..
+0 drwxr-xr-x. 3 default root  237 Jul 15 23:37 css
+0 drwxr-xr-x. 2 default root  143 Jul 15 23:37 fonts
+4 drwxr-xr-x. 3 default root 4096 Jul 15 23:37 img
+4 drwxr-xr-x. 4 default root 4096 Jul 15 23:37 js
+
+./static/admin/css:
+total 96
+ 0 drwxr-xr-x. 3 default root   237 Jul 15 23:37 .
+ 0 drwxr-xr-x. 6 default root    51 Jul 15 23:37 ..
+12 -rw-r--r--. 1 default root  8440 Jul 15 23:37 autocomplete.css
+16 -rw-r--r--. 1 default root 16106 Jul 15 23:37 base.css
+ 8 -rw-r--r--. 1 default root  6170 Jul 15 23:37 changelists.css
+ 4 -rw-r--r--. 1 default root   412 Jul 15 23:37 dashboard.css
+ 4 -rw-r--r--. 1 default root   423 Jul 15 23:37 fonts.css
+ 8 -rw-r--r--. 1 default root  8173 Jul 15 23:37 forms.css
+ 4 -rw-r--r--. 1 default root  1203 Jul 15 23:37 login.css
+20 -rw-r--r--. 1 default root 17894 Jul 15 23:37 responsive.css
+ 4 -rw-r--r--. 1 default root  1859 Jul 15 23:37 responsive_rtl.css
+ 4 -rw-r--r--. 1 default root  3731 Jul 15 23:37 rtl.css
+ 0 drwxr-xr-x. 3 default root    21 Jul 15 23:37 vendor
+12 -rw-r--r--. 1 default root 10340 Jul 15 23:37 widgets.css
+
+./static/admin/css/vendor:
+total 0
+0 drwxr-xr-x. 3 default root  21 Jul 15 23:37 .
+0 drwxr-xr-x. 3 default root 237 Jul 15 23:37 ..
+0 drwxr-xr-x. 2 default root  74 Jul 15 23:37 select2
+
+./static/admin/css/vendor/select2:
+total 40
+ 0 drwxr-xr-x. 2 default root    74 Jul 15 23:37 .
+ 0 drwxr-xr-x. 3 default root    21 Jul 15 23:37 ..
+ 4 -rw-r--r--. 1 default root  1124 Jul 15 23:37 LICENSE-SELECT2.md
+20 -rw-r--r--. 1 default root 17604 Jul 15 23:37 select2.css
+16 -rw-r--r--. 1 default root 15196 Jul 15 23:37 select2.min.css
+
+./static/admin/fonts:
+total 260
+ 0 drwxr-xr-x. 2 default root   143 Jul 15 23:37 .
+ 0 drwxr-xr-x. 6 default root    51 Jul 15 23:37 ..
+12 -rw-r--r--. 1 default root 11560 Jul 15 23:37 LICENSE.txt
+ 4 -rw-r--r--. 1 default root   137 Jul 15 23:37 README.txt
+84 -rw-r--r--. 1 default root 82564 Jul 15 23:37 Roboto-Bold-webfont.woff
+80 -rw-r--r--. 1 default root 81348 Jul 15 23:37 Roboto-Light-webfont.woff
+80 -rw-r--r--. 1 default root 80304 Jul 15 23:37 Roboto-Regular-webfont.woff
+
+./static/admin/img:
+total 80
+4 drwxr-xr-x. 3 default root 4096 Jul 15 23:37 .
+0 drwxr-xr-x. 6 default root   51 Jul 15 23:37 ..
+4 -rw-r--r--. 1 default root 1094 Jul 15 23:37 calendar-icons.svg
+0 drwxr-xr-x. 2 default root   59 Jul 15 23:37 gis
+4 -rw-r--r--. 1 default root  331 Jul 15 23:37 icon-addlink.svg
+4 -rw-r--r--. 1 default root  504 Jul 15 23:37 icon-alert.svg
+4 -rw-r--r--. 1 default root 1086 Jul 15 23:37 icon-calendar.svg
+4 -rw-r--r--. 1 default root  380 Jul 15 23:37 icon-changelink.svg
+4 -rw-r--r--. 1 default root  677 Jul 15 23:37 icon-clock.svg
+4 -rw-r--r--. 1 default root  392 Jul 15 23:37 icon-deletelink.svg
+4 -rw-r--r--. 1 default root  560 Jul 15 23:37 icon-no.svg
+4 -rw-r--r--. 1 default root  655 Jul 15 23:37 icon-unknown-alt.svg
+4 -rw-r--r--. 1 default root  655 Jul 15 23:37 icon-unknown.svg
+4 -rw-r--r--. 1 default root  436 Jul 15 23:37 icon-yes.svg
+4 -rw-r--r--. 1 default root  560 Jul 15 23:37 inline-delete.svg
+4 -rw-r--r--. 1 default root 1081 Jul 15 23:37 LICENSE
+4 -rw-r--r--. 1 default root  318 Jul 15 23:37 README.txt
+4 -rw-r--r--. 1 default root  458 Jul 15 23:37 search.svg
+4 -rw-r--r--. 1 default root 3291 Jul 15 23:37 selector-icons.svg
+4 -rw-r--r--. 1 default root 1097 Jul 15 23:37 sorting-icons.svg
+4 -rw-r--r--. 1 default root  331 Jul 15 23:37 tooltag-add.svg
+4 -rw-r--r--. 1 default root  280 Jul 15 23:37 tooltag-arrowright.svg
+
+./static/admin/img/gis:
+total 12
+0 drwxr-xr-x. 2 default root   59 Jul 15 23:37 .
+4 drwxr-xr-x. 3 default root 4096 Jul 15 23:37 ..
+4 -rw-r--r--. 1 default root 1129 Jul 15 23:37 move_vertex_off.svg
+4 -rw-r--r--. 1 default root 1129 Jul 15 23:37 move_vertex_on.svg
+
+./static/admin/js:
+total 136
+ 4 drwxr-xr-x. 4 default root  4096 Jul 15 23:37 .
+ 0 drwxr-xr-x. 6 default root    51 Jul 15 23:37 ..
+ 8 -rw-r--r--. 1 default root  6502 Jul 15 23:37 actions.js
+ 4 -rw-r--r--. 1 default root  3161 Jul 15 23:37 actions.min.js
+ 0 drwxr-xr-x. 2 default root    65 Jul 15 23:37 admin
+ 4 -rw-r--r--. 1 default root  1124 Jul 15 23:37 autocomplete.js
+ 8 -rw-r--r--. 1 default root  7777 Jul 15 23:37 calendar.js
+ 4 -rw-r--r--. 1 default root   204 Jul 15 23:37 cancel.js
+ 4 -rw-r--r--. 1 default root   712 Jul 15 23:37 change_form.js
+ 4 -rw-r--r--. 1 default root  1151 Jul 15 23:37 collapse.js
+ 4 -rw-r--r--. 1 default root  1634 Jul 15 23:37 collapse.min.js
+ 8 -rw-r--r--. 1 default root  7134 Jul 15 23:37 core.js
+16 -rw-r--r--. 1 default root 13673 Jul 15 23:37 inlines.js
+ 8 -rw-r--r--. 1 default root  5824 Jul 15 23:37 inlines.min.js
+ 4 -rw-r--r--. 1 default root   363 Jul 15 23:37 jquery.init.js
+ 4 -rw-r--r--. 1 default root   569 Jul 15 23:37 popup_response.js
+ 4 -rw-r--r--. 1 default root   495 Jul 15 23:37 prepopulate_init.js
+ 4 -rw-r--r--. 1 default root  1538 Jul 15 23:37 prepopulate.js
+ 4 -rw-r--r--. 1 default root   372 Jul 15 23:37 prepopulate.min.js
+ 8 -rw-r--r--. 1 default root  5755 Jul 15 23:37 SelectBox.js
+16 -rw-r--r--. 1 default root 12680 Jul 15 23:37 SelectFilter2.js
+ 4 -rw-r--r--. 1 default root  2984 Jul 15 23:37 timeparse.js
+12 -rw-r--r--. 1 default root  8729 Jul 15 23:37 urlify.js
+ 0 drwxr-xr-x. 5 default root    50 Jul 15 23:37 vendor
+
+./static/admin/js/admin:
+total 32
+ 0 drwxr-xr-x. 2 default root    65 Jul 15 23:37 .
+ 4 drwxr-xr-x. 4 default root  4096 Jul 15 23:37 ..
+20 -rw-r--r--. 1 default root 20283 Jul 15 23:37 DateTimeShortcuts.js
+ 8 -rw-r--r--. 1 default root  6897 Jul 15 23:37 RelatedObjectLookups.js
+
+./static/admin/js/vendor:
+total 4
+0 drwxr-xr-x. 5 default root   50 Jul 15 23:37 .
+4 drwxr-xr-x. 4 default root 4096 Jul 15 23:37 ..
+0 drwxr-xr-x. 2 default root   70 Jul 15 23:37 jquery
+0 drwxr-xr-x. 3 default root   94 Jul 15 23:37 select2
+0 drwxr-xr-x. 2 default root   73 Jul 15 23:37 xregexp
+
+./static/admin/js/vendor/jquery:
+total 344
+  0 drwxr-xr-x. 2 default root     70 Jul 15 23:37 .
+  0 drwxr-xr-x. 5 default root     50 Jul 15 23:37 ..
+256 -rw-r--r--. 1 default root 258648 Jul 15 23:37 jquery.js
+ 84 -rw-r--r--. 1 default root  85659 Jul 15 23:37 jquery.min.js
+  4 -rw-r--r--. 1 default root   1282 Jul 15 23:37 LICENSE-JQUERY.txt
+
+./static/admin/js/vendor/select2:
+total 244
+  0 drwxr-xr-x. 3 default root     94 Jul 15 23:37 .
+  0 drwxr-xr-x. 5 default root     50 Jul 15 23:37 ..
+  4 drwxr-xr-x. 2 default root   4096 Jul 15 23:37 i18n
+  4 -rw-r--r--. 1 default root   1124 Jul 15 23:37 LICENSE-SELECT2.md
+160 -rw-r--r--. 1 default root 161832 Jul 15 23:37 select2.full.js
+ 76 -rw-r--r--. 1 default root  75005 Jul 15 23:37 select2.full.min.js
+
+./static/admin/js/vendor/select2/i18n:
+total 192
+4 drwxr-xr-x. 2 default root 4096 Jul 15 23:37 .
+0 drwxr-xr-x. 3 default root   94 Jul 15 23:37 ..
+4 -rw-r--r--. 1 default root  887 Jul 15 23:37 ar.js
+4 -rw-r--r--. 1 default root  701 Jul 15 23:37 az.js
+4 -rw-r--r--. 1 default root  906 Jul 15 23:37 bg.js
+4 -rw-r--r--. 1 default root  876 Jul 15 23:37 ca.js
+4 -rw-r--r--. 1 default root 1236 Jul 15 23:37 cs.js
+4 -rw-r--r--. 1 default root  818 Jul 15 23:37 da.js
+4 -rw-r--r--. 1 default root  775 Jul 15 23:37 de.js
+4 -rw-r--r--. 1 default root 1132 Jul 15 23:37 el.js
+4 -rw-r--r--. 1 default root  827 Jul 15 23:37 en.js
+4 -rw-r--r--. 1 default root  871 Jul 15 23:37 es.js
+4 -rw-r--r--. 1 default root  775 Jul 15 23:37 et.js
+4 -rw-r--r--. 1 default root  844 Jul 15 23:37 eu.js
+4 -rw-r--r--. 1 default root 1004 Jul 15 23:37 fa.js
+4 -rw-r--r--. 1 default root  703 Jul 15 23:37 fi.js
+4 -rw-r--r--. 1 default root  902 Jul 15 23:37 fr.js
+4 -rw-r--r--. 1 default root  800 Jul 15 23:37 gl.js
+4 -rw-r--r--. 1 default root  951 Jul 15 23:37 he.js
+4 -rw-r--r--. 1 default root 1125 Jul 15 23:37 hi.js
+4 -rw-r--r--. 1 default root  839 Jul 15 23:37 hr.js
+4 -rw-r--r--. 1 default root  727 Jul 15 23:37 hu.js
+4 -rw-r--r--. 1 default root  752 Jul 15 23:37 id.js
+4 -rw-r--r--. 1 default root  773 Jul 15 23:37 is.js
+4 -rw-r--r--. 1 default root  876 Jul 15 23:37 it.js
+4 -rw-r--r--. 1 default root  848 Jul 15 23:37 ja.js
+4 -rw-r--r--. 1 default root 1065 Jul 15 23:37 km.js
+4 -rw-r--r--. 1 default root  854 Jul 15 23:37 ko.js
+4 -rw-r--r--. 1 default root  913 Jul 15 23:37 lt.js
+4 -rw-r--r--. 1 default root  872 Jul 15 23:37 lv.js
+4 -rw-r--r--. 1 default root  979 Jul 15 23:37 mk.js
+4 -rw-r--r--. 1 default root  791 Jul 15 23:37 ms.js
+4 -rw-r--r--. 1 default root  785 Jul 15 23:37 nb.js
+4 -rw-r--r--. 1 default root  896 Jul 15 23:37 nl.js
+4 -rw-r--r--. 1 default root  925 Jul 15 23:37 pl.js
+4 -rw-r--r--. 1 default root  853 Jul 15 23:37 pt-BR.js
+4 -rw-r--r--. 1 default root  859 Jul 15 23:37 pt.js
+4 -rw-r--r--. 1 default root  909 Jul 15 23:37 ro.js
+4 -rw-r--r--. 1 default root 1127 Jul 15 23:37 ru.js
+4 -rw-r--r--. 1 default root 1184 Jul 15 23:37 sk.js
+4 -rw-r--r--. 1 default root 1067 Jul 15 23:37 sr-Cyrl.js
+4 -rw-r--r--. 1 default root  938 Jul 15 23:37 sr.js
+4 -rw-r--r--. 1 default root  786 Jul 15 23:37 sv.js
+4 -rw-r--r--. 1 default root  951 Jul 15 23:37 th.js
+4 -rw-r--r--. 1 default root  720 Jul 15 23:37 tr.js
+4 -rw-r--r--. 1 default root 1117 Jul 15 23:37 uk.js
+4 -rw-r--r--. 1 default root  801 Jul 15 23:37 vi.js
+4 -rw-r--r--. 1 default root  769 Jul 15 23:37 zh-CN.js
+4 -rw-r--r--. 1 default root  708 Jul 15 23:37 zh-TW.js
+
+./static/admin/js/vendor/xregexp:
+total 196
+  0 drwxr-xr-x. 2 default root     73 Jul 15 23:37 .
+  0 drwxr-xr-x. 5 default root     50 Jul 15 23:37 ..
+  4 -rw-r--r--. 1 default root   1103 Jul 15 23:37 LICENSE-XREGEXP.txt
+128 -rw-r--r--. 1 default root 128820 Jul 15 23:37 xregexp.js
+ 64 -rw-r--r--. 1 default root  62474 Jul 15 23:37 xregexp.min.js
+
+./static/css:
+total 4
+0 drwxr-xr-x. 2 default root  22 Jul 15 23:37 .
+0 drwxr-xr-x. 4 default root  30 Jul 15 23:37 ..
+4 -rw-r--r--. 1 default root 863 Jul 15 23:37 blog.css
+
+./templates:
+total 60
+ 0 drwxrwxr-x. 2 default root   148 Jul 15 23:36 .
+ 4 drwxrwxr-x. 1 default root  4096 Jul 15 23:37 ..
+24 -rw-rw-r--. 1 default root 21360 Jul 15 23:36 postgresql-persistent-two-volumes-cronjobs.json
+20 -rw-rw-r--. 1 default root 19075 Jul 15 23:36 postgresql-persistent-two-volumes.json
+12 -rw-rw-r--. 1 default root  8675 Jul 15 23:36 sqlite-persistent-one-volume.json
+STEP 10: CMD /tmp/scripts/run
+STEP 11: COMMIT temp.builder.openshift.io/rm-343002/meu-blog-1:4baf9feb
+Getting image source signatures
+Copying blob sha256:0b054459c00a34b2b17c5b3c630f25270acb778be3e5c9369185a22d3cf9b42e
+Copying blob sha256:73bf0b1db372c204a79bf1beadf847b1f9873bcdf2c48e4339d8ad292fab6efb
+Copying blob sha256:84b6bd9f4d0c3e2bc727c4fb62701c07b71c5a33e9803c8f5c71d36a8515ade4
+Copying blob sha256:d2ddbf27faca20065be426c2a7140f04899afbd2b811c8cd1bc3fe78b82d1c10
+Copying blob sha256:b85c62db56cf78a9c9e03fc3d4b234cb6e1a0d3f7a8dfc3ff9a4191b8e80495d
+Copying blob sha256:40c901323e1532f6226ea49233e0a49473382491e6ee220e464ef0996a359efb
+Copying config sha256:0c105959e4979c58a50e9727e9a8104406bc46453492332e90810b6267c02b89
+Writing manifest to image destination
+Storing signatures
+--> 0c105959e49
+0c105959e4979c58a50e9727e9a8104406bc46453492332e90810b6267c02b89
+
+Pushing image image-registry.openshift-image-registry.svc:5000/rm-343002/meu-blog:latest ...
+Getting image source signatures
+Copying blob sha256:40c901323e1532f6226ea49233e0a49473382491e6ee220e464ef0996a359efb
+Copying blob sha256:e0e9ac142996019bde22d55cf51053069e0135f1aae55c9e3bdc77d591c3369b
+Copying blob sha256:fd3cd11aea08456c116a42669bde7cf67dc6738c227f0dd9b26d4b677e2a98f1
+Copying blob sha256:cba8c5a84841f149b262dd9abebee75ce3a0611bfecb365ea178e0dd5a2a0f05
+Copying blob sha256:a2745c55c3c1fba0208863c387ce5d947a92be3c48577e8436c85b4712546f40
+Copying blob sha256:cafe1f99c39ec8cd1f8e696c7031d8c5756311c1ee87f20c65a816889714841c
+Copying config sha256:0c105959e4979c58a50e9727e9a8104406bc46453492332e90810b6267c02b89
+Writing manifest to image destination
+Storing signatures
+Successfully pushed image-registry.openshift-image-registry.svc:5000/rm-343002/meu-blog@sha256:5999160137a5a1da1674693dd356292cf8ea0b6ad5df04a87a9d808687466595
+Push successful

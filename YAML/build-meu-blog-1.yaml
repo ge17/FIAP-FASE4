@@ -1,0 +1,134 @@
+﻿kind: Build
+apiVersion: build.openshift.io/v1
+metadata:
+  annotations:
+    openshift.io/build-config.name: meu-blog
+    openshift.io/build.number: '1'
+    openshift.io/build.pod-name: meu-blog-1-build
+  selfLink: /apis/build.openshift.io/v1/namespaces/rm-343002/builds/meu-blog-1
+  resourceVersion: '98890246'
+  name: meu-blog-1
+  uid: 11362ced-5cbc-4fb6-80de-b196b1befdf8
+  creationTimestamp: '2022-07-15T23:36:18Z'
+  namespace: rm-343002
+  ownerReferences:
+    - apiVersion: build.openshift.io/v1
+      kind: BuildConfig
+      name: meu-blog
+      uid: aac7936e-5f39-4bf6-ab88-99d980030f35
+      controller: true
+  labels:
+    app: meu-blog
+    app.kubernetes.io/part-of: meu-blog
+    app.kubernetes.io/instance: meu-blog
+    openshift.io/build-config.name: meu-blog
+    app.kubernetes.io/component: meu-blog
+    openshift.io/build.start-policy: Serial
+    buildconfig: meu-blog
+    app.openshift.io/runtime: python
+    app.kubernetes.io/name: python
+    app.openshift.io/runtime-version: 3.8-ubi7
+spec:
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'meu-blog:latest'
+    pushSecret:
+      name: builder-dockercfg-sfvxj
+  resources: {}
+  triggeredBy:
+    - message: Image change
+      imageChangeBuild:
+        imageID: >-
+          image-registry.openshift-image-registry.svc:5000/openshift/python@sha256:267bcd308156b848bbae5e3f255b014d2fff4186a535a543c69070beb47635ab
+        fromRef:
+          kind: ImageStreamTag
+          namespace: openshift
+          name: 'python:3.8-ubi7'
+  strategy:
+    type: Source
+    sourceStrategy:
+      from:
+        kind: DockerImage
+        name: >-
+          image-registry.openshift-image-registry.svc:5000/openshift/python@sha256:267bcd308156b848bbae5e3f255b014d2fff4186a535a543c69070beb47635ab
+      pullSecret:
+        name: builder-dockercfg-sfvxj
+  postCommit: {}
+  serviceAccount: builder
+  source:
+    type: Git
+    git:
+      uri: 'https://github.com/openshift-katacoda/blog-django-py.git'
+    contextDir: /
+  revision:
+    type: Git
+    git:
+      commit: 9c4f338ab5f3a5ae379ecaa5bcc7d449fa41648e
+      author:
+        name: ryan jarvinen
+        email: ryan.jarvinen@gmail.com
+      committer:
+        name: GitHub
+        email: noreply@github.com
+      message: 'Merge pull request #9 from mixpix3ls/master'
+status:
+  output:
+    to:
+      imageDigest: 'sha256:5999160137a5a1da1674693dd356292cf8ea0b6ad5df04a87a9d808687466595'
+  config:
+    kind: BuildConfig
+    namespace: rm-343002
+    name: meu-blog
+  outputDockerImageReference: 'image-registry.openshift-image-registry.svc:5000/rm-343002/meu-blog:latest'
+  duration: 82000000000
+  startTimestamp: '2022-07-15T23:36:18Z'
+  stages:
+    - name: FetchInputs
+      startTime: '2022-07-15T23:36:21Z'
+      durationMilliseconds: 302
+      steps:
+        - name: FetchGitSource
+          startTime: '2022-07-15T23:36:21Z'
+          durationMilliseconds: 302
+    - name: PullImages
+      startTime: '2022-07-15T23:36:23Z'
+      durationMilliseconds: 29483
+      steps:
+        - name: PullBaseImage
+          startTime: '2022-07-15T23:36:23Z'
+          durationMilliseconds: 29483
+    - name: Build
+      startTime: '2022-07-15T23:36:53Z'
+      durationMilliseconds: 43303
+      steps:
+        - name: DockerBuild
+          startTime: '2022-07-15T23:36:53Z'
+          durationMilliseconds: 43303
+    - name: PushImage
+      startTime: '2022-07-15T23:37:36Z'
+      durationMilliseconds: 3489
+      steps:
+        - name: PushImage
+          startTime: '2022-07-15T23:37:36Z'
+          durationMilliseconds: 3489
+  conditions:
+    - type: New
+      status: 'False'
+      lastUpdateTime: '2022-07-15T23:36:18Z'
+      lastTransitionTime: '2022-07-15T23:36:18Z'
+    - type: Pending
+      status: 'False'
+      lastUpdateTime: '2022-07-15T23:36:22Z'
+      lastTransitionTime: '2022-07-15T23:36:22Z'
+    - type: Running
+      status: 'False'
+      lastUpdateTime: '2022-07-15T23:37:40Z'
+      lastTransitionTime: '2022-07-15T23:37:40Z'
+    - type: Complete
+      status: 'True'
+      lastUpdateTime: '2022-07-15T23:37:40Z'
+      lastTransitionTime: '2022-07-15T23:37:40Z'
+  completionTimestamp: '2022-07-15T23:37:40Z'
+  phase: Complete

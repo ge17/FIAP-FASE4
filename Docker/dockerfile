@@ -1,0 +1,4 @@
+### Stage 1 (Build)
+FROM quay.io/gee17/do180-custom-httpd:v1.0 as teste-fiap-rm343002
+ENV MINHA_VARIAVEL="TESTE VARIAVEL DE AMBIENTE!"
+RUN echo "TESTANDO - $MINHA_VARIAVEL" >> /var/www/html/index.html
